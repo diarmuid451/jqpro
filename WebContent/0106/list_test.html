@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here 이라구?</title>
+<!-- 외부 스타일을 연결 -->
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<style>
+    div{
+        width: 40%;
+        background-color: bisque;
+        padding : 20px;
+        margin : 10px;
+        border-bottom: 5px double grey;
+        border-right: 5px double grey;
+        float: left;
+    }
+   
+</style>
+</head>
+<body>
+        <pre>
+            외부에 저장된 스타일 파일을 html안에서 링크로 연결 해서 사용
+            &lt;link rel="stylesheet" href="../css/mystyle.css"&gt;
+        </pre>
+<div>
+     ul: 번호없는 리스트, li : 텍스트
+    <ul>
+        <li>아메리카노</li>
+        <li>카푸치노</li>
+        <li>카페라떼</li>
+        
+    </ul>
+</div>
+
+<div>
+    ol : 번호가 있는 리스트, li : 텍스트
+    <ol>
+        <li>아메리카노</li>
+        <li>카푸치노</li>
+        <li>카페라떼</li>
+    </ol>
+</div>
+<div>
+    ul: 번호없는 리스트, li : 이미지
+    <ul>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%"; height="100%"></li>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%"; height="100%"></li>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></li>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></li>
+    </ul>
+</div>
+<div>
+    ol: 번호있는 리스트, li : 이미지
+    <ol>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></li>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></li>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></li>
+        <li><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></li>
+    </ol>
+</div>
+<div>
+    ul: 번호없는 리스트, li : 링크
+    <ul>
+        <li><a href="http://www.google.com">구글</a></li>
+        <li><a href="http://www.naver.com">네이버</a></li>
+        <li><a href="http://www.w3schools.com">w3학교</a></li>
+        <li><a href="http://github.com/diarmuid451">내git 주소</a></li>
+    </ul>
+</div>
+<div>
+    ol: 번호있는 리스트, li : 링크
+    <ol>
+        <li><a href="http://www.google.com">구글</a></li>
+        <li><a href="http://www.naver.com">네이버</a></li>
+        <li><a href="http://www.w3schools.com">w3학교</a></li>
+        <li><a href="http://github.com/diarmuid451">내git 주소</a></li>
+    </ol>
+</div>
+<div>
+    ul: 번호없는 리스트, li : 링크
+    <ul>
+        <li><a href="http://www.google.com"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+        <li><a href="http://www.naver.com"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+        <li><a href="http://www.w3schools.com"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+        <li><a href="http://github.com/diarmuid451"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+    </ul>
+</div>
+<div>
+    ol: 번호있는 리스트, li : 링크
+    <ol>
+        <li id="olLeft"><a href="../images/download.jpg"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+        <li id="olLeft"><a href="http://www.naver.com" target="_self"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></liid="olLeft">
+        <li id="olLeft"><a href="http://www.w3schools.com" target="_blank"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+        <li id="olLeft"><a href="http://github.com/diarmuid451" target="_parent"><img src = "../images/14155D0B4A77138801.jpg"; width="30%";height="100%"></a></li>
+    </ol>
+</div>
+<div>
+    ul: 번호없는 리스트, li : 텍스트
+   <ul>
+       <li>아메리카노</li>
+       <ul>
+           <li>핫 브류</li>
+           <li>콜드 브류</li>
+           <ol>
+               <li>영국식</li>
+               <li>미국식</li>
+           </ol>
+       </ul>
+       <li>카푸치노</li>
+       <li>카페라떼</li>
+       
+   </ul>
+</div>
+<div>
+    <dl>
+        <dt>에스프레소</dt>
+        <dd>-커피의 기본, 커피의 원액이다.</dd>
+        <dt>아메리카노</dt>
+        <dd>-에스프레소에 물을 넣은 것</dd>
+        <dt>카페라떼</dt>
+        <dd>-커피에 우유를 섞은 것</dd>
+    </dl>
+</div>
+
+</body>
+</html>
