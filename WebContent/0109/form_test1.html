@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+</head>
+<body>
+    <pre>
+        submit이 발생되면 입력양식의 값을 서버페이지(test.jsp)로 보낸다.
+        입력 양식의 값은 name속성을 이용한다.
+
+        서버페이지(test.jsp)에서는 name속성값을 이용해서 요청된 값을 가져간다.
+        request.getParameter("name");
+        request.getParameter("pass");
+        보내는 방식에는 get과 post가 있다.
+        get방식 : 입력값이 url주소 뒤에 ?문자열 형식으로 보낸다.
+
+        post방식 : 입력값이 url주소 뒤에 붙지 않고 requestHeader에 숨겨서 보내진다.
+    </pre>
+    <form action="test.jsp" method="GET">
+        이름 :  <input type="text" name="name"><br> 
+        비밀번호 :  <input type="password" name="pass"><br>
+        <button type="button">확인</button> <!-- 타입 버튼은 기능없음 -->
+        <button>전송</button>
+        <button type="submit">전송</button>
+
+        <input type="button" value="확인">
+        <input type="submit">
+
+    </form>
+    <br><hr>
+    <h1>POST 전송</h1>
+    <form action="test.jsp" method="POST">
+        이름 :  <input type="text" name="name"><br> 
+        비밀번호 :  <input type="password" name="pass"><br>
+        <button type="button">확인</button> <!-- 타입 버튼은 기능없음 -->
+        <button>전송</button>
+        <button type="submit">전송</button>
+
+        <input type="button" value="확인">
+        <input type="submit">
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function proc1(){
+        //1. id가 clr인 곳에서 선택된 색상을 가져온다.
+        var a = document.getElementById("clr");
+        x = a.value;
+        console.log(x);
+        //2. div의 배경색을 1번에서 수행한 결과값으로 변경한다.
+        var y = document.getElementsByTagName("div");  
+        // y[0].style.background = x;
+        y[0].style.borderColor = x;
+        // alert("여기는 proc1 함수입니다.");
+        
+    }
+    </script>
+    <style>
+        div{
+            width: 90%;
+            height: 300px;
+            border: 2px solid orangered; /* 단축 속성 */
+            margin: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <pre>
+    body태그안의 어떤 요소에 접근하기 위한 방법
+    document는 window객체의 하위 객체로 지정되어 있다.
+    실행시 body태그의 기술된 각각의 요소들로 document를 생성한다. 
+    생성된 document를 window에 보여준다.   
+    var x = document.getElementById("clr");
+    x.value
+    var y = document.getElementsByTagName("div");  <!-- 복수의 요소를 받아올 경우Elements를 사용 -->
+    y.style.background = x.value
+    var z = document.getElementsByClassName("클래스이름"); 
+    </pre>
+    <form>
+        <input type="color" id="clr">
+        <input type="button" value="확인" onclick="proc1()">
+    </form>
+    <div id="box"></div>
+</body>
+</html>
