@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <title>Document</title>
+    <style>
+        form, div{
+            width: 50%;
+            margin: 30px auto;
+            padding: 30px;
+            border: 10px outset silver;
+        }
+    </style>
+    <script>
+        function getValue(){
+            // tag이름이 select요소로 접근, 값을 가져온다.
+            // name이 person요소로 접근, 값을 가져온다.
+            a = document.getElementsByName('person');
+            x = a[0].value;
+
+            //div에 출력
+                // tag이름이 div인 요소로 접근,
+            b = document.getElementsByTagName('div');    
+                // 출력 : innerHTML
+            b[0].innerHTML = x;    
+        }
+    </script>
+</head>
+<body>
+<pre>
+tag이름이 select요소로 접근, 값을 가져온다.
+    - document.getElementsByTagName('select')[0].value;
+    
+    - a = document.getElementsByTagName('select');
+        x = a[0].value;
+
+name이 person요소로 접근, 값을 가져온다.
+    - document.getElementsByName('person')[0].value;
+    
+    - a = document.getElementsByName('person');
+       x = a[0].value;
+div에 출력
+    tag이름이 div인 요소로 접근, 출력한다.
+    b = document.getElementsTagName('div');
+    b[0].innerHTML = x;
+
+innerHTML을 이용해서 출력할 수 있는 태그들
+    input, textarea, select를 제외한 모든 요소들    
+</pre>
+<form>
+    <h3>너의 HTML은...</h3>
+    <select onchange="getValue()" name="person">
+        <option value="192.168.205.46">BMW</option> 
+        <option value="192.168.205.37">AUDI</option> 
+        <option value="192.168.205.42">BENZ</option> 
+        <option value="192.168.205.32">MASERATI</option> 
+        <option value="192.168.205.46">HYUNDAI</option> 
+       
+    </select>
+</form>
+<br><hr>
+<div>
+
+</div>
+</body>
+</html>

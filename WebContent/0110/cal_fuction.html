@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        function calc(){
+            //id가 price인 요소에 접근, 값을 가져온다.
+            var a = document.getElementById("price");
+            x = a.value;
+            //id가 volume인 요소에 접근, 값을 가져온다.
+            var b = document.getElementById("volume");
+            y = b.value;
+            //계산
+            var total = x*y;
+            //출력
+            output = "가격 : " + x + "\n" + 
+                    "수량 : "+y+"\n"+
+                    "결제금액 : "+ total;
+            alert(output);
+        }
+    </script>
+    <style>
+        form{
+            width: 50%;
+            border: 10px outset blueviolet;
+            padding: 10px;
+            /* margin-top: 50px;
+            margin-left: 20%px; */
+            margin: 30px auto; /* 12시 방향을 기준으로 시계방향으로 번호*/
+        }
+        span{
+        	color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        가격 : <input type="text" id="price"><br>
+        수량 : <input type="text" id="volume">
+        <input type="button" value="확인" onclick="calc()"><br>
+      
+
+
+    </form>
+    <br><hr>
+    <button onclick="alert('Hello')"></button>
+    <br><hr>
+    <form action="textarea.jsp" method="POST">
+        이름 : <input type="text" name="name"><br>
+     <span>고객의 소리</span><br>
+        <textarea name = "area" cols="50" rows="10"></textarea><br>
+        <button>전송</button>
+
+    </form>
+</body>
+</html>
