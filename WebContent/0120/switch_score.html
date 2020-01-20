@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        div{
+            font-weight: bolder;
+            font-size: 3em;
+        }
+        </style>
+        <script>
+        function calc() {
+           while(true) {
+
+               a = prompt("점수를 입력하세요.");
+               if(a >= 0 && a <= 100) break;
+               alert("올바른 점수가 아닙니다.");
+            } 
+               x = parseInt(a/10);
+               switch(x) {
+                   case 10: case 9:
+                   grade = 'A';
+                   break;
+                   case 8:
+                   grade = 'B';
+                   break;
+                   case 7:
+                   grade = 'C';
+                   break;
+                   case 6:
+                   grade = 'D';
+                   break;
+                   default:
+                   grade = 'F';
+                   break;
+                   }
+               
+                   reslut = "<h3>점수 : "+ a + "</h3>";
+                   reslut += "<h3>성적 : "+ grade + "</h3>";
+                   document.getElementsByTagName('div')[0].innerHTML = reslut;
+               }
+          
+
+        </script>
+    </head>
+    <body>
+    <pre>
+
+    버튼을 클릭하면 0~100사이의 값을 입력하여 성적을 구한다.
+    성적은 A, B, C, D, F로 div에 한다. 
+
+    switch를 이용한다.
+    switch는 값 비교시 비교연산자를 사용할 수 없다.
+
+    </pre>
+    <div></div>
+    <button onclick="calc()" type="button">입력</button>
+    </body>
+</html>

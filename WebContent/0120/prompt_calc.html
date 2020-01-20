@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        function calc() {
+            //두개의 수와 연산자를 입력한다.
+            a = prompt("스크립트 프롬프트\n첫번째 숫자를 입력하세요.");
+            cal = prompt("스크립트 프롬프트\n연산자를 입력하세요\n(+,-,*,/,% 중 하나만 선택");
+            b = prompt("스크립트 프롬프트\n두번째 숫자를 입력하세요.");
+
+            if(cal == '+') {
+                res = a + '+' + b + '=';
+                res += parseInt(a) + parseInt(b);
+            } else if(cal == '-') {
+                res = a + '-' + b + '=';
+                res += a - b;
+            } else if(cal == '*') {
+                res = a + '*' + b + '=';
+                res += a * b;
+            } else if(cal == '/') {
+                res = a + '/' + b + '=';
+                res += a / b;
+            } else {
+                res = a + '%' + b + '=';
+                res += a % b;
+            }
+            document.getElementsByTagName('div')[0].innerHTML = res;
+
+        }
+        </script>
+    </head>
+    <body>
+    <pre>
+    버튼을 클릭하면 두개의 수와 연산자를 입력받아 연산을 수행한다. 
+    결과는 div에 출력한다.
+    </pre>
+    <button onclick="calc()" type="button">확인</button>
+    <br><br>
+    <div></div>
+    </body>
+</html>

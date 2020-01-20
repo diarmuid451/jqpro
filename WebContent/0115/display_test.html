@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn3, img{
+            display: none;
+        }
+    </style>
+     <script>
+      window.onload = function(){ 
+       var b3 = document.getElementById("btn3");
+       var vimg = document.getElementsByTagName("img")[0];
+      }
+      function show(){
+        //이미지와 확인버튼을 보이게 설정한다.
+        //html 요소에 접근한다.
+         
+  
+        //각 요소의 style을 지정
+        b3.style.display = 'block';
+        vimg.style.display = 'block';  
+      }
+      function hide(){
+          b3.style.display = 'none';
+        vimg.style.display = 'none';
+      }
+      </script>
+</head>
+<body>
+
+    <button onclick="hide()" id="btn1" type="button">감추기</button>
+    <button onclick="show()" id="btn2" type="button">보이기</button>
+    <button id="btn3" type="button">확인</button>
+    <img src="../images/에스프레소.jpg">
+
+   
+</body>
+</html>      

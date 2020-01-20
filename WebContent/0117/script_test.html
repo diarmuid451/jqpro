@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/">
+        <title>Document</title>
+        <style></style>
+
+        <!-- 외부 스크립트 -->
+        <script src="../js/myscript.js"></script>
+        <script>
+            //내부 스크립트
+            //textarea에 접근 style변경
+            function proc1(){ 
+
+                area = document.getElementsByTagName('textarea')[0];
+                
+                //호출시마다 배경색을 변경 >> 랜덤이용
+                r = parseInt(Math.random()*255);
+                g = parseInt(Math.random()*255);
+                b = parseInt(Math.random()*255);
+                
+                r16 = r.toString(16);
+                g16 = g.toString(16);
+                b16 = b.toString(16);
+                
+                // area.style.background = "#"+r16+g16+b16;
+                area.style.background = "rgb("+r+","+g+","+b+ ")";
+            }
+        </script>
+    </head>
+    <body>
+        <button onmouseover="proc1(),proc2()" type="button">내부</button>
+        <button onmouseover="proc2()" type="button">외부</button>
+        <button type="button" onclick="alert('Hello')">인라인</button><br>
+        <textarea rows="10" cols="50"></textarea>
+    </body>
+</html>     

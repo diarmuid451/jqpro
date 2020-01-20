@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 30px auto;
+            empty-cells: hide;
+        }
+        td{
+            width: 150px;
+            height: 30px;
+            text-align: center;
+        }
+        th{
+            height: 40px;
+            background: steelblue;
+        }
+        caption{
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            caption-side: bottom;
+        }
+        .odd{
+            background: lightcoral;
+        }
+        .even{
+            background: lightskyblue;
+        }
+        #tab2 tr:nth-child(odd){
+            background: lightseagreen;
+        }
+        #tab2 tr:nth-child(even){
+            background: lawngreen;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+    tr태그에 번갈아가며 odd클래스와 even클래스 부여
+        .odd{
+            background: lightcoral;
+        }
+        .even{
+            background: lightskyblue;
+        }    
+    </pre>
+    <table id="tab1" border="1">
+        <caption>VIP 고객 리스트</caption>
+        <tr>
+            <th>이름</th>
+            <th>주소</th>
+            <th>전화번호</th>
+        </tr>
+        <tr class="odd">
+            <td>홍길동</td>
+            <td>대구</td>
+            <td>010-2345-6543</td>
+        </tr>
+        <tr class="even">
+            <td>김길동</td>
+            <td>대전</td>
+            <td>010-2345-6543</td>
+        </tr>
+        <tr class="odd">
+            <td>고길동</td>
+            <td>서울</td>
+            <td>010-2345-6543</td>
+        </tr>
+        <tr class="even">
+            <td>이길동</td>
+            <td>인천</td>
+            <td>010-2345-6543</td>
+        </tr>
+    </table><br>
+    <table id="tab2" border="1">
+        <pre>
+        구조적 의사 클래스를 이용하여 표현
+        #tab2 tr:nth-child(odd){
+            background: lightseagreen;
+        }
+        #tab2 tr:nth-child(even){
+            background: lawngreen;
+        }
+        </pre>
+        <caption>VIP 고객 리스트</caption>
+        <tr>
+            <th>이름</th>
+            <th>주소</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>대구</td>
+            <td>010-2345-6543</td>
+        </tr>
+        <tr>
+            <td>김길동</td>
+            <td>대전</td>
+            <td>010-2345-6543</td>
+        </tr>
+        <tr>
+            <td>고길동</td>
+            <td>서울</td>
+            <td>010-2345-6543</td>
+        </tr>
+        <tr>
+            <td>이길동</td>
+            <td>인천</td>
+            <td>010-2345-6543</td>
+        </tr>
+    </table><br>
+</body>
+</html>

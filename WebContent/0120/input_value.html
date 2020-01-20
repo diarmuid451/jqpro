@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        function num() {
+             a = document.getElementById('x');
+             b = document.getElementById('y');
+             result = document.getElementById('rsl');
+             output = document.getElementById('ddiv');
+        }
+        // function summ() {
+        //     num();
+        //     a = a.value;
+        //     b = b.value; 
+        //     add = parseInt(a) + parseInt(b);
+        //    result.value = add;
+        // }
+        // function subb() {
+        //     num();
+        //     a = a.value;
+        //     b = b.value; 
+        //    result.value =  parseInt(a) - parseInt(b);
+        // }
+        // function multii() {
+        //     num();
+        //     a = a.value;
+        //     b = b.value; 
+        //     multi = parseInt(a) * parseInt(b);
+        //    result.value = multi;
+        // }
+        // function divv() {
+        //     num();
+        //     a = a.value;
+        //     b = b.value; 
+        //     divide = parseInt(a) / parseInt(b);
+        //    result.value = divide;
+        // }
+        function proc(thiss) {
+            txt = thiss.innerHTML;
+            num();
+            a = a.value;
+            b = b.value;  
+            console.log(a + " , " + b);  
+            if(txt == '+'){
+              res = parseInt(a) + parseInt(b);
+            } else if(txt == '-') {
+                res = parseInt(a) - parseInt(b);
+            } else if(txt == '*') {
+                res = parseInt(a) * parseInt(b);
+            } else {
+                res = parseInt(a) / parseInt(b);
+            }
+
+            result.value = res
+            output.innerHTML = "<h2>"+res+"</h2>"; //글자 내용이 출력
+            // output.textContent = "<h2>"+res+"</h2>";  //글자 자체가 출력
+
+        }
+        </script>
+    </head>
+    <body>
+        <h2>덧셈 계산기</h2>
+        수1 : <input id="x" type="text"><br>
+        수2 : <input id="y" type="text"><br>
+        결과 : <input id="rsl" type="text"><br>
+        <!-- <button type="button" onclick="summ()">+</button>
+        <button type="button" onclick="subb()">-</button>
+        <button type="button" onclick="multii()">*</button>
+        <button type="button" onclick="divv()">/</button> -->
+        <button type="button" onclick="proc(this)">+</button>
+        <button type="button" onclick="proc(this)">-</button>
+        <button type="button" onclick="proc(this)">*</button>
+        <button type="button" onclick="proc(this)">/</button>
+        <br><br>
+        <pre>
+        div에 출력 :
+        innerHTML   : 출력내용속에 html태그가 실행되면서 출력
+        textContent : 출력내용속에 html태그가 그대로 출력
+        </pre>
+        <div id="ddiv"></div>
+    </body>
+</html>

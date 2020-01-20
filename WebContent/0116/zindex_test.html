@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/">
+        <title>Document</title>
+        <style>
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+        #d1{
+            top : 50px;
+            left: 20px;
+            background-color: aquamarine;
+            z-index: 3;
+        }
+        #d2{
+            top: 60px;
+            left: 40px;
+            background-color: darkgoldenrod;
+            z-index: 2;
+        }
+        #d3{
+            top: 80px;
+            left: 60px;
+            background-color: mediumslateblue;
+            z-index: 0;
+        }
+        hr{
+            position: relative;
+            top: 200px;
+        }
+        img{
+            position: relative;
+            top: 100px;
+            width: 200px;
+            height: 150px;
+            z-index: -1;
+        }
+        </style>
+        <script></script>
+    </head>
+    <body>
+        <div id="d1"></div>
+        <div id="d2"></div>
+        <div id="d3"></div>
+        <br><hr color="red">
+        <img src="../images/back005.jpg" alt=""/>
+        <p>img요소의 z-index가 -1이므로 다른 요소의 뒤에 위치한다.</p>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>이메일 전송화면</title>
+    <style>
+        *{
+        font-size: 1.1em;
+        margin: 5px;
+        border: 2px solid black;
+        }
+        label{
+            display: inline-block;
+            width: 100px;
+        }
+        fieldset{
+            width: 50%;
+        }
+        .txt{
+            border: 2px solid hotpink;
+        }
+        #area{
+            border: 3px dotted springgreen;
+        }
+        input[type = "submit"] {color: crimson;}
+        input[type = "reset"] {color: royalblue;}
+    </style>
+</head>
+<body>
+    <h1>이메일 전송화면</h1>
+    <form>
+        <fieldset>
+        <legend>이메일 전송하기</legend>
+       이름 : <input class="txt" type="text" autofocus placeholder="이름"><br>
+       이메일 주소 : <input class="txt" type="text" placeholder="email"><br>
+       내용 : <br><textarea id="area" cols="50" rows="8" style="overflow: auto;"></textarea><br>
+       <input type="submit">
+       <input type="reset">
+    </fieldset>
+    </form>
+
+    <form action="formtest.jsp" method="POST">
+        <h1>회원 가입 화면</h1>
+        <fieldset>
+        <legend>회원 가입 입력하기</legend>
+        <label>이름 : </label><input class="txt" type="text" name="name" autofocus placeholder="이름"><br>
+        <label>주소 : </label><input class="txt" type="text" name="addr" placeholder="주소"><br>
+        <label>email : </label><input class="txt" type="text" placeholder="email"><br>
+        <label>Male</label><input type="radio" name="gender" value="male" checked><br>
+        <label>Female</label><input type="radio" name="gender" value="female"><br>
+        <input type="submit" value="Send">
+        <input type="reset" value="원래대로">
+    </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        div{
+            margin-top: 50px;
+            font-size: 3em;
+            color: skyblue;
+            text-align: center;
+            text-shadow: 5px 5px 5px chocolate;
+        }
+        </style>
+        <script>
+        function input() {
+            aa = prompt("문자를 입력", "홍길동");
+
+            //aa를 id가 result인 곳에 출력
+            document.getElementById("result").innerHTML = aa;
+
+
+        }
+        </script>
+    </head>
+    <body>
+        <pre>
+        버튼 클릭시 문자를 입력하여 div에 출력한다.
+        </pre>
+        <button onclick="input()" type="button">입력</button><br>
+        <div id="result"></div>
+    </body>
+</html>

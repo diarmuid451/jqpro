@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <title>Document</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 200px;
+        }
+        #etc{
+            width: 700px;
+        }
+        fieldset{
+            width: 50%;
+        }
+        span{
+            border: 1px solid slategray;
+            padding: 5px;
+        }
+        pre{
+            background: aliceblue;
+        }
+        
+    </style>
+    <script>
+        function getValue() {
+            //id가 inrang 인 요소에 접근, 값을 가져온다.
+            a = document.getElementsByName("inrang")[0].value;
+            //tagName이 span인 요소에 출력
+            document.getElementsByTagName("span")[0].innerHTML = a;
+        }   
+    </script>
+</head>
+<body>
+    <pre style="background: burlywood;">
+    fieldset : 요소들의 그룹핑에 사용
+    label : 화면에 표시되는 일반문자
+    display : 화면에 표시되는 속성을 결정 
+            inline : 자동으로 줄 바뀌지 않음
+            block : 자동으로 줄 바뀜
+            inline-block : 줄이 바뀌지 않으면서 길이 조절 가능
+            none : 화면상에 보이지 않음
+    &lt;input type =  range onmousemove = "getValue()"&gt;
+                            onchange = "getValue()"&gt;
+            onchange : IE에서 자동 실행, Chrome에서 실행 설정 필요                           
+    </pre>
+    <form>
+        <fieldset>
+
+            <legend>인적사항입력</legend>
+                <label>이름 : </label><input type="text"><br>
+                <label>전화번호 : </label><input type="text"><br>
+                <label>주소 : </label><input type="text"><br>
+                <input type="button" value="확인">
+        </fieldset>
+        <br>
+        <fieldset id="etc">
+            <legend>기타입력</legend>
+            <label>이메일 : </label><input type="text"><br>
+            <label>나의 홈주소 : E:/A_TeachingMaterial/5.JQuery/jqpro/WebContent/0113/fieldset.html</label><br>  
+            <label>생년월일</label><input type="date"><br>
+            <label>키 : </label><input type="number" min="160" max="200" step="10" value="180"><br>
+            <label>기간 : </label> <input name ="inrang" onmousemove="getValue()" type="range" min="1000" max="5000" value="2000">
+            <span></span>
+    </fieldset>
+    <br>
+    <fieldset>
+        <input type="submit">
+        <input type="reset">
+    </fieldset>
+    </form>
+</body>
+</html>

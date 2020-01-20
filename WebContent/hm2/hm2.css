@@ -1,0 +1,38 @@
+   
+        div{
+            margin-top: 30px;
+            margin-left: 10px;
+            padding: none;
+            width: 20%;
+            height: 300px;
+            box-sizing: border-box;
+            border-bottom: 1px dotted black;
+            float: left;
+        }
+        div h3{
+            width: 60px;
+            height: 60px;
+            color: azure;
+            background-color: aquamarine;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 0% 50% 50% 50%;
+        }
+        nav{
+            padding: 40px 30px;
+            margin-right: 40px;
+            width: 150px;
+            height: 2000px;
+            background-image: url("../images/gradation1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: beige;
+            float: left;
+        }
+        section{
+            box-sizing: border-box;
+            width: 75%;
+            padding: 0px;
+            margin: 0px;
+            float: left;
+        }
