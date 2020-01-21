@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/">
+        <title>Document</title>
+        <style>
+         div{
+                height: auto;
+                padding: 10px;
+                margin: 10px;
+                border: 1px dotted orange;
+            }
+        h1{
+            text-align: center;
+        }
+        </style>
+        <script>
+            function proc1(){
+                var arr = ["이거슨", "배열이", "라는거", "시여라"];
+                var out = document.getElementById("array1");
+                print(arr, out);
+            }
+            function proc2(){
+                arr = new Array();
+                arr[0] = "저거또";
+                arr[1] = "배열이";
+                arr[2] = "라는거";
+                arr[3] = "신지라";
+                out = document.getElementById("array2");
+                print(arr, out);
+            }
+            function proc3(){
+                arr = new Array("고놈도", "배열이", "라는거", "여떠라");
+                out = document.getElementById("array3");
+                print(arr, out);
+            }
+            function print(arr, out) {
+               out.innerHTML = arr;
+            }
+        </script>
+    </head>
+    <body>
+    <h1>배열 생성하기</h1>
+    <h3>a = ["이거슨", "배열이", "라는거", "시여라"]</h3>
+    <button onclick="proc1()" type="button">리터럴</button><br>
+    <div id="array1"></div><hr>
+    
+    <h3>a = new Array()</h3>
+    <button onclick="proc2()" type="button">생성자</button><br>
+    <div id="array2"></div><hr>
+
+    <h3>a = new Array("korea", "apple", "orange")</h3>
+    <button onclick="proc3()" type="button">생성자</button><br>
+    <div id="array3"></div><hr>
+
+</body>
+</html>

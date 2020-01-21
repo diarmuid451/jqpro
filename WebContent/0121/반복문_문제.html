@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/">
+        <title>Document</title>
+        <style>
+            div{
+                height: auto;
+                padding: 10px;
+                margin: 10px;
+                border: 1px dotted orange;
+            }
+        </style>
+        <script>
+            function proc1() {
+                sum = 0;
+                for (let index = 1; index <= 200; index++) {
+                   if(index%2 == 1) continue;
+                   sum += index; 
+                }
+                document.getElementById("result1").innerHTML = "결과 : "+ sum;
+            }
+            function proc2() {
+                sum = 0;
+                do {
+                    a = parseInt(prompt("숫자를 입력해 주세요."));
+                    sum += a;
+                } while (a != 0);
+                document.getElementById("result2").innerHTML = "결과 : "+ sum;
+            }
+            function proc3() {
+                var sum = "<br>";
+                for (let i = 1; i <= 10; i++) {
+                    for (let k = 1; k <= 10; k++) {
+                       res = (i + k);
+                       if(res%3 != 0) continue;
+                       sum += i + "+" + k + " = " + res + ", ";
+                    }
+                }
+                document.getElementById("result3").innerHTML = "결과 : "+sum;
+            }
+            function proc4() {
+                
+                var sum = "<br>"
+                for (let index = 1; index <=100; index++) {
+                    if(index%2 == 0 && index%3 == 0) {
+                        sum += index + ", ";
+                    } continue;
+                }
+
+            document.getElementById("result4").innerHTML = "결과 : "+ sum;
+            }
+
+            function proc5() {
+                cnt = 0;
+                sum = "";
+                while (true){
+                    cnt++;
+                    a = parseInt(prompt("첫번째 입력해주세요."));
+                    b = parseInt(prompt("두번째 입력해주세요."));                    
+                   
+                    if (a== 0 && b==0) {
+                        alert("실행 종료");
+                        break;
+                       
+                    } else if(a + b < 100) {
+                        alert("다시 입력해 주세요.");
+                        continue;
+                    } else {
+                       sum += cnt + ". "+a+"+"+b+"="+(a+b)+"<br>";
+                    }
+                } 
+                document.getElementById("result5").innerHTML = sum;
+            }
+        </script>
+    </head>
+    <body>
+    <h3>1부터 200까지의 짝수의 합을 구하는 프로그램을 작성하시오.(continue를 이용)</h3>
+    <button onclick="proc1()" type="button">실행</button><br>
+    <div id="result1"></div><hr>
+   
+    <h3>사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 값을 출력하는 프로그램을 작성하시오.</h3>
+    <button onclick="proc2()" type="button">실행</button><br>
+    <div id="result2"></div><hr>
+   
+    <h3>다중 for문을 이용해서 1~10까지 중 i와 k의 더한 합이 3의 배수일때만 출력(continue를 이용)</h3>
+    <button onclick="proc3()" type="button">실행</button><br>
+    <div id="result3"></div><hr>
+   
+    <h3>1부터 100까지 중 2의 배수이면서 3의 배수인것만 출력</h3>
+    <button onclick="proc4()" type="button">실행</button><br>
+    <div id="result4"></div><hr>
+    
+    <h3>두 수를 입력(prompt)하고 두 수의 합이 100이상일 때만 출력, 모두 0일 경우 종료(continue를 이용)</h3>
+    <button onclick="proc5()" type="button">실행</button><br>
+    <div id="result5"></div><hr>
+
+
+    </body>
+</html>
