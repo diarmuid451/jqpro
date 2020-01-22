@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+            div{
+                height: auto;
+                padding: 10px;
+                border: 2px dotted gainsboro;
+            }
+            button{
+                border-radius: 14%;
+                color: dodgerblue;
+            }
+        </style>
+        <script>
+            function fun1(){
+                var a = document.getElementById("su1").value;
+                var b = parseInt(a) * 2;
+
+                document.getElementsByTagName("div")[0].innerHTML = "<h2>"+b+"</h2>";
+
+            }
+            
+            function fun2() {
+            x = document.getElementsByTagName("div")[0].textContent;
+            document.getElementById("su2").value = x;
+            }
+            
+        </script>
+    </head>
+    <body>
+    <pre>
+        input태그에 수를 입력한다.
+        div에 입력한 수의 2배 값을 출력한다.
+    </pre>
+    <hr>
+    입력 <input type="text" id="su1"><button type="button" onclick="fun1()" >실행</button><br>
+    출력 : 입력 * 2<br>
+    <div></div><br>
+    <pre>
+        div의 결과를 가져와서 input태그에 출력한다.
+    </pre>
+    <button type="button" onclick="fun2()" >출력</button><br>
+    <input type="text" id="su2">
+
+
+    </body>
+</html>

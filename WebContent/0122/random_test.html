@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+            div{
+                background-color: peachpuff;
+                border: 1px solid palegreen;
+                width: 200;
+                height: 200px;
+                padding: 10;
+                overflow: auto;
+            }
+        </style>
+        <script>
+         function random() {
+             k = 0;
+             while(k<10) {
+            x = "";
+             for (index = 1; index <= 5; index++) {
+                 a = parseInt(Math.random()*100 +1);
+                  if(index == 5) {
+                    x += a;
+                  } else {
+                  x += a + ", ";
+                  }    
+             }
+             x += "<br>";
+             document.getElementById("result").innerHTML += x;
+            } 
+             k++;
+         }
+         function random1(but) {
+            but.style.display = "none";
+            y = setInterval(function() {
+            x = "";
+             for (index = 1; index <= 5; index++) {
+                 a = parseInt(Math.random()*100 +1);
+                  if(index == 5) {
+                    x += a;
+                  } else {
+                  x += a + ", ";
+                  }    
+             }
+             x += "<br>";
+               document.getElementById("result1").innerHTML += x;
+            }, 500)
+            console.log(y);
+         }
+         function random2() {
+             clearInterval(y);
+             document.getElementById("run").style.display = "inline";
+         }
+        </script>
+    </head>
+    <body>
+        <pre>
+            버튼을 클릭 할 때마다 5개씩 10번 출력된다.
+        </pre>
+    <input type="button" value="시작" onclick="random()"><br>
+    <hr color="darkblue">
+    <h1>출력위치</h1>
+    <div id="result"></div>
+    <br><hr><br>
+    <pre>
+        0.5초에 한번씩 5개의 값이 출력된다.
+        규칙적인 시간간격으로 실행 : setInterval()
+    </pre><br>
+    <input id = "run" type="button" value="시작" onclick="random1(this)">
+    <input onclick="random2()" type="button" value="종료"><br>
+    <hr color="darkblue">
+    <h1>출력위치</h1>
+    <div id="result1"></div>
+    </body>
+</html>

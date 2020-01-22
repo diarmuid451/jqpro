@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        div{
+                background-color: peachpuff;
+                border: 1px solid palegreen;
+                width: 250px;
+                height: auto;
+                padding: 10;
+                overflow: auto;
+        }        
+        </style>
+        <script>
+        function proc1() {
+            var x = true;
+            var gugu = "";
+            while(x) {
+                var a = parseInt(prompt("출력할 구구단의 단 수를 입력해주세요."));
+                gugu += "<h3>" + a+ "단</h3>";
+                
+                for (var index = 1; index <= 9; index++) {
+                    if(index == 9){
+                        gugu += a*index;
+                    } else {
+                        gugu += a*index+"/";
+                    }
+                    
+                }
+                
+                x = confirm("계속 하시겠습니까?")
+            }
+            document.getElementById("result").innerHTML = gugu;
+        }
+        </script>
+    </head>
+    <body>
+    <pre>
+        수를 입력하고 입력된 수의 구구단을 출력
+        출력 후 지속 여부를 묻는다.
+        true, false로 판단
+    </pre>
+    <button type="button" onclick="proc1()">실행</button>
+    <br><br>
+    <div id="result"></div>
+    </body>
+</html>
