@@ -8,15 +8,15 @@
         <title>Document</title>
         <style></style>
         <script>
-                Rect = {
-                    width : 20,
-                    height : 12,
+            Rect = {
+                width : 20,
+                height : 12,
 
-                    getArea : function() {
-                        area = this.width * this.height;
-                        return area;
-                    }
+                getArea : function() {
+                    area = this.width * this.height;
+                    return area;
                 }
+            }
 
             function fun1(){
                 print("square1");
@@ -32,6 +32,9 @@
                 str = "가로 : "+ Rect.width + "<br>";
                 str += "세로 : "+ Rect.height + "<br>";
                 str += "면적 : "+ Rect.getArea() + "<br>";
+                
+                
+
                 document.getElementById(id).innerHTML = str;
             }
         </script>

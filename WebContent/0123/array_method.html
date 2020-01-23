@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        div {
+            height: auto;
+            padding: 10px;
+            border: 2px dotted gold;
+        }
+        </style>
+        <script>
+        str = ["홍길동", "개나리", "임꺽정", "진달래","홍길동","무궁화","수선화","홍길동","라일락"];  
+        fruits = ["Banana", "Orange", "Apple", "Mango"];
+        function indexFun1(){
+            //이름 입력
+            name = prompt("이름을 입력해주세요.");
+            idx = str.indexOf(name);
+            x = "indexOf(" + name+ ") : ";
+            if (idx == -1) {
+            x += name+"님은 없습니다.";
+            } else {
+            x += name+"님은"+idx+"번째에 있습니다.";
+            }
+            document.getElementById("result").innerHTML = x;
+        }
+        function indexFun2(){
+            name = prompt("이름을 입력해주세요");
+            idx = str.lastIndexOf(name);
+            x = "lastIndexOf(" + name+ ") : ";
+            if (idx == -1) {
+            x += name+"님은 없습니다.";
+            } else {
+            x += name+"님은"+idx+"번째에 있습니다.";
+            }
+            document.getElementById("result").innerHTML = x;
+        
+        }
+        function indexFun3() {
+            //홍길동을 모두 찾는다.
+            name = prompt("이름을 입력해주세요.");
+            idx = 0;
+            y = "indexOf(" + name+ ") : ";
+            x = "";
+            while(true) {
+              idx = str.indexOf(name, idx);
+              if(idx == -1) {
+                
+                break;  
+              } 
+                x += idx + ", ";
+                idx++;
+            }
+                y += name+"님은"+x+"번째에 있습니다.";
+                document.getElementById("result").innerHTML = y;
+        }
+        function pushFun() {
+            //이름을 입력해서 마지막 위치에 추가
+            name = prompt("추가할 이름을 입력해주세요.");
+            str.push(name);
+            document.getElementById("result2").innerText = str;
+        }
+        function popFun() {
+            //배열의 마지막 위치의 요소를 제거한다.
+            str.pop();
+            document.getElementById("result2").innerText = str;
+        }
+        function shiftFun() {
+           
+            str.shift();
+            document.getElementById("result2").innerText = str;
+        }
+        function unshiftFun() {
+            name = prompt("추가할 이름을 입력해주세요.");
+            str.unshift(name);
+            document.getElementById("result2").innerText = str;
+        }
+        function sliceFun() {
+            doc = document.getElementById("result3");
+            x = "원래배열 : "+str+"<br>";
+            y = str.slice(1,6);
+            x += "자른 배열 : "+y; 
+            doc.innerHTML = x;
+
+        }
+        function spliceFun() {
+        x = "원래 배열 : "+ fruits+"<br>";
+        fruits.splice(2, 2, "Lemon", "Kiwi");
+        x += "새로운 배열 : "+ fruits;
+        document.getElementById("result3").innerHTML = x;
+        }
+        function concatFun() {
+            arr = str.concat(fruits);
+            x = " str의 길이 : "+str.length+ "<br>";
+            x += "fruits의 길이 : "+ fruits.length+"<br>";
+            x += "arr의 길이 : "+arr.length+"<br>";
+            for (let index = 0; index < arr.length; index++) {
+                x += (index+1) + "번째 요소 : " + arr[index] + "<br>";
+            }
+
+            document.getElementById("result4").innerHTML = x;
+        }
+        function joinFun() {
+            arr = str.join(fruits);
+            x = "";
+            for (let index = 0; index < arr.length; index++) {
+                x += (index+1) + "번째 요소 : " + arr[index] + "<br>";
+            }
+
+            document.getElementById("result4").innerHTML = x;
+        }
+        </script>
+    </head>
+    <body>
+    <pre>
+        <h2>01. 이름을 입력받아 위치값 알아내기</h2>
+        str = ["홍길동", "개나리", "임꺽정", "진달래","홍길동","무궁화","수선화","홍길동","라일락"];
+        <br>
+        indextOf(item,start)
+        lastIndoexOf(item)
+    </pre>
+    <br><br>
+    <button type="button" onclick="indexFun1()">indexOf</button>
+    <button type="button" onclick="indexFun2()">LastIndexOf</button>
+    <button type="button" onclick="indexFun3()">indexOf_start</button>
+    <br><br>
+    <div id="result"></div>
+    <br><hr><br>
+    <pre>
+        <h2>02. 배열의 마지막 요소를 추가/삭제</h2>
+        push(item)
+        pop()
+        <h2>02. 배열의 처음 요소를 추가/삭제</h2>
+        shift()
+        unshift(item)
+    </pre>
+    <button type="button" onclick="pushFun()">push</button>
+    <button type="button" onclick="popFun()">pop</button>
+    <button type="button" onclick="shiftFun()">shift</button>
+    <button type="button" onclick="unshiftFun()">unshift</button>
+    <br><br>
+    <div id="result2"></div>
+    <br><hr><br>
+    <pre>
+        <h2>03. 배열의 중간에 요소를 추가/삭제</h2>
+        slice(start, end) : start ~ (end -1)까지의 요소를 잘라서 새로운 배열을 만든다.
+        splice(start, end) : 배열의 요소를 삭제, 변경
+    </pre>
+    <button onclick="sliceFun()" type="button">slice</button>
+    <button onclick="spliceFun()" type="button">splice</button>
+    <br><br>
+    <div id="result3"></div>
+    <br><hr><br>
+    <PRE>
+        <strong>배열합치기/배열을 문자열로 치환하기</strong>
+        a.concat(b) : a배열과 b배열을 합쳐서 새로운 배열을 만든다.
+        a.join(b)   : a배열과 b배열이 하나의 문자열로 변환
+    </PRE>
+    <button onclick="concatFun()" type="button">concat</button>
+    <button onclick="joinFun()" type="button">join</button>
+    <br><br>
+    <div id="result4"></div>
+    <br><hr><br>
+</body>
+</html>
