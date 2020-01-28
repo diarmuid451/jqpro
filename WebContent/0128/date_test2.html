@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        	function fun1() {
+				//현재날짜, 태어난 날짜 >> data객체 생성
+				today = new Date();
+				birtday = new Date(1989,09,15);
+				
+				time = today.getTime() - birtday.getTime();
+
+                //alert(time);
+               	sec = time/1000;
+               	min = sec/60;
+               	hour = min/60;
+               	day = hour/24;
+               	year = day/365;
+
+                res = "new Date() : "+today.toLocaleDateString()+"<br>";
+                res += "new Date(1989,09,15) : "+birtday.toLocaleDateString()+"<br>";
+                res += "살아온 초 : "+sec+"<br>";
+                res += "당신은 "+year+"년 살았습니다.";
+
+                document.getElementById("result1").innerHTML = res;
+              
+			}
+        	function fun2() {
+				today = new Date();
+				
+				//time = 전체의 getTime() + 100일의 getTime()
+				msec = today.getTime()+ 100*1*24*60*60*1000
+				
+				//msce으로 새로운 Date객체를 생성
+				newday = new Date(msec);
+				
+				document.getElementById("result2").innerHTML = newday;
+				
+			}
+        	function fun3() {
+				a = new Date();
+				b = new Date(document.getElementById("seldate").value);
+				
+				x = a.getTime() - b.getTime();
+				
+				xday = x/(1000*60*60*24);
+				res = "현재 날짜 : "+a.toLocaleDateString()+"<br>";
+				res +="구입 날짜 : "+b.toLocaleDateString()+"<br>";
+				if(xday > 7) {
+					res += "교환 불가능";
+				} else {
+					res += "교환 가능";
+				}
+				document.getElementById("result3").innerHTML = res
+			}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>살아온 날 구하기</h2>
+    <pre>
+    	//현재날짜, 태어난 날짜 >> data객체 생성
+		today = new Date();
+		birtday = new Date(1989,09,15);
+				
+		time = today.getTime() - birtday.getTime();
+
+                //alert(time);
+               	sec = time/1000;
+               	min = sec/60;
+               	hour = min/60;
+               	day = hour/24;
+               	year = day/365;
+
+                
+    </pre>
+    	<button onclick="fun1()" type="button">실행</button>
+    	<div id="result1"></div>
+    </div>
+    
+    <div class="box">
+    <h2>100일 뒤 날짜 구하기</h2>
+    <pre>
+    	today = new Date();
+				
+		//time = 전체의 getTime() + 100일의 getTime()
+		msec = today.getTime()+ 100*1*24*60*60*1000
+				
+		//msce으로 새로운 Date객체를 생성
+		newday = new Date(msec);
+    </pre>
+    <button onclick="fun2()" type="button">실행</button>
+    <div id="result2"></div>
+    </div>
+    
+    <div class="box">
+    <h2>교환 가능 불가능 구하기</h2>
+    <pre>
+    	
+    </pre>
+    구입날짜 : <input id="seldate" type="date">
+    <button onclick="fun3()" type="button">실행</button>
+    <div id="result3"></div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        function fun1() {
+			now1 = new Date();
+			print(now1, "result1");
+			now2 = new Date(1234567812);
+			print(now2, "result2");
+			now3 = new Date("2010.01.01");
+			print(now3, "result3");
+			now4 = new Date(2010,01-1,01,12,10,20);
+			print(now4, "result4");
+			
+			/* document.getElementById('result1').innerHTML = now1;
+			document.getElementById("result2").innerHTML = now2;
+			document.getElementById("result3").innerHTML = now3;
+			document.getElementById("result4").innerHTML = now4; */
+		}
+        
+        function print(now, result) {
+        	console.log(now1);
+			document.getElementById(result).innerHTML = now;
+		} 
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>Date 객체 생성</h2>
+    <pre>
+    	now1 = new Date();
+		now2 = new Date(1234567812);
+		now3 = new Date("2010.01.01");
+		now4 = new Date(2010,01,01,12,10,20);
+    </pre>
+    <button onclick="fun1()" type="button">실행</button>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    <div id="result3"></div>
+    <div id="result4"></div>
+    </div>
+    </body>
+</html>

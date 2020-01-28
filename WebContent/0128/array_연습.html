@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        function fun1() {
+			arr = new Array();
+			
+			while(true) {
+				//입력
+				input = prompt("이름을 입력하세요.");
+					
+				//조건 - break;
+				if(input== "" || input == null) break;
+				
+				//배열에 저장
+				arr.push(input);
+			}
+			document.getElementById("result1").innerHTML = arr;
+		}
+        function fun2() {
+			arr = new Array(5);
+			i = 0;
+			while(true) {
+				//입력
+				a = parseInt(prompt("정수를 입력하세요."));
+				//if(중복검사) - {
+					//배열에 추가
+					//i 증가
+				//}
+				if(arr.indexOf(a) == -1){
+				arr[i] = a;
+				i++;						
+				}		
+				//조건 - break;
+				if(i >= 5) break;
+			
+			}
+			document.getElementById("result2").innerHTML = arr;
+		}
+        </script>
+    </head>
+    <body>
+    <div class = "box">
+    <h2>입력받아 배열에 저장</h2>
+    <pre>
+    	arr = new Array();
+    	
+			while(true) {
+				//입력
+				input = prompt("이름을 입력하세요.");
+					
+				//조건 - break;
+				if(input== "" || input == null) break;
+				
+				//배열에 저장
+				arr.push(input);
+			}
+			document.getElementById("result1").innerHTML = arr;
+    </pre>
+    <button onclick="fun1()" type="button">실행</button>
+    <div id="result1"></div>
+    </div>
+    <div class = "box">
+    <h2>중복되지 않는 정수 5개 입력받아 출력</h2>
+    <pre>
+    	arr = new Array();
+    	도대체 왜?
+    </pre>
+    <button onclick="fun2()" type="button">실행</button>
+    <div id="result2"></div>
+    </div>
+    </body>
+</html>
