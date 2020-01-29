@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        	function fun1() {
+				while(true) {
+					var x = prompt("주민등록번호를 입력해주세요.","가운데 - 는 반드시 넣어주세요.");
+					if(x.length == 14 && x.indexOf("-") == 6) break;
+					alert("잘못입력하셨습니다. 다시 입력해주세요.");
+				}
+				yy = parseInt(x.slice(0,2));
+				if(yy >= 50) {
+					yy = "19"+ yy;
+				} else {
+					yy = "20"+yy;
+				}
+				mm = parseInt(x.slice(2,4));
+				dd = parseInt(x.slice(4,6));
+				birthday = "생일 : "+yy+"년 "+mm+"월 "+dd+"일<br>";
+				if(x.charAt(7) == "1" || x.charAt(7) == "3" ) {
+					gender = "성별 : 남자<br>";
+				} else {
+					gender = "성별 : 여자<br>";
+				}
+				today = new Date();
+				year = today.getFullYear();
+				age = "나이 : "+(year- parseInt(yy)+1);
+				
+			    document.getElementById("result1").innerHTML = birthday+gender+age;
+			}
+        	function fun2() {
+        		while(true) {
+					var x = prompt("주민등록번호를 입력해주세요.","가운데 - 는 반드시 넣어주세요.");
+					if(x.length == 14 && x.indexOf("-") == 6) break;
+					alert("잘못입력하셨습니다. 다시 입력해주세요.");
+				}
+        		x1 = x.split("-");
+        		x2 = x1[0].concat(x1[1]);
+        		num = "234567892345";
+        		sum = 0;
+        		for (var i = 0; i < num.length; i++) {
+					sum += x2.slice(i,i+1)*num.substr(i,1);
+				}
+        		m = x.substr(13,1);
+        		sum = sum%11;
+        		sum = 11-sum;
+        		sum = sum %10;
+        		res = "입력 : "+ x1[0]+"-"+x1[1].slice(0,1)+"******<br>";
+        		if(sum == m) {
+        			res += "맞는 주민등록번호 입니다.";
+        		} else {
+        			res += "틀린 주민등록번호 입니다.";
+        		}
+        		document.getElementById("result2").innerHTML = res;
+			}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre>
+    
+    </pre>
+    <button onclick="fun1()" type="button">주민번호 입력</button><br>
+    <button onclick="fun2()" type="button">유효성 검사</button>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    </div>
+    </body>
+</html>
