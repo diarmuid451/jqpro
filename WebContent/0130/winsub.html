@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			df = document.ff;
+			//입력한 값 가져오기
+			
+			vname = df.name.value;
+			vtel = df.tel.value;
+			
+			send = "이름 : "+ vname + "<br>전화번호 : "+vtel+"<br>";
+			//부모창에 출력하기
+			opener.document.getElementById("result1").innerHTML = send;
+			
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>winsub 자식창</h2>
+    <pre>
+    window_test.html에서 새롭게 열린 창
+    window_test.html의 자식 창이다.
+    
+   	 버튼을 클릭하면 입력한 값을 부모창으로 보낸다.
+   	 각 요소에 name을 이용한 접근방법
+   	 document.getElementsByName("name")[0]
+   	 document.getElementsByName("tel")[0]
+   	 
+   	 name이 중복되지 않을 경우 이런방법을 사용할 수 도 있다.
+   	 document.ff.name
+   	 document.ff.tel
+    </pre>
+    <form name="ff">
+        이름 :	<input type="text" name="name"><br>
+	전화번호 : <input type="text" name="tel"><br>
+    </form>
+    
+    <button onclick="fun1()" type="button">실행</button>
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>

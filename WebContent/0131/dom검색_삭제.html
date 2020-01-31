@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+			
+			arr = ["Johnadan","Josheph","Jotaro", "Josuke", "Giovanna", "Jorin"];
+		function fun1() {
+			
+			ran = Math.floor(Math.random()*arr.length);
+			txtnode = document.createTextNode(arr[ran]);
+			
+			ptag = document.createElement('p');
+			ptag.appendChild(txtnode);
+			
+			document.getElementById("result1").appendChild(ptag);	
+		}
+		
+		function fun2() {
+			parent = document.getElementById("result1");
+			child = parent.lastChild;
+			parent.removeChild(child);
+		}
+		function fun3() {
+			
+			
+			ran = Math.floor(Math.random()*arr.length);
+			txtnode = document.createTextNode(arr[ran]);
+			
+			ptag = document.createElement('p');
+			
+			btnode = document.createElement("button");
+			btnode.innerHTML = "삭제";
+			btnode.onclick = function() {
+				x = this.parentNode;
+				x.remove();
+			}
+			
+			ptag.appendChild(txtnode);
+			ptag.appendChild(btnode);
+			
+			document.getElementById("result2").appendChild(ptag);
+		
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>dom검색 - 추가/삭제</h2>
+    <pre>
+	추가버튼 클릭시
+		p태그 생성
+		램덤을 이용한 text생성
+		text를 p태그에 추가
+		p태그를 div에 추가
+	삭제버튼 클릭시
+		div에 있는 마지막자식요소(lastChild) 삭제
+    </pre>
+    <button onmouseover="fun1()" type="button">추가</button>
+    <button onmouseover="fun2()" type="button">삭제</button>
+    <div id="result1"></div>
+    </div>
+
+    <div class="box">
+    <h2>dom검색 - 추가/삭제</h2>
+    <pre>
+	추가버튼 클릭시
+		p태그 생성
+		램덤을 이용한 text생성
+		새로운 버튼을 추가
+		text와 버튼을 p태그에 추가
+		p태그를 div에 추가
+	삭제버튼 클릭시
+		div에 있는 마지막자식요소(lastChild) 삭제
+    </pre>
+    <button onclick="fun3()" type="button">추가삭제</button>
+    <div id="result2"></div>
+    </div>
+    </body>
+</html>

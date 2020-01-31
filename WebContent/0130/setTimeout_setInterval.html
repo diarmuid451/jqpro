@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			//0.5초가 경과하면 result1의 배경색을 변환
+			setTimeout(function() {
+			document.getElementById("result1").style.background = "cyan";	
+			}, 500);
+		}	
+		function fun2(but) {	
+			but.style.display = "none";
+			a = setInterval(function() {
+				console.log(a);
+			x= Math.floor(Math.random()*256);
+			y = Math.floor(Math.random()*256);
+			z = Math.floor(Math.random()*256);
+			
+			x = x.toString(16);
+			y = y.toString(16);
+			z = z.toString(16);
+			
+				document.getElementById("result2").style.background = 
+					"#"+x+y+z;	
+			}, 500);
+		}
+		function fun3() {
+			document.getElementById("b2").style.display = "inline";
+			clearInterval(a);
+		}
+		function fun4(but) {
+			but.style.display = "none";
+			document.getElementById("b5").style.display = "inline";
+			result = document.getElementById("result4");
+			result.style.background = "mediumspringgreen";
+			
+			b = setInterval(function() {
+				
+				result.style.background = 
+					result.style.background == "mediumspringgreen" ? "darkorange" : "mediumspringgreen";
+				
+				/* if (result.style.background == "mediumspringgreen") {
+					result.style.background = "yellow";
+				} else {
+					result.style.background = "mediumspringgreen";
+				} */
+			}, 1000);
+		}
+		function fun5(but) {
+			but.style.display = "none";
+			document.getElementById("b4").style.display = "inline";
+			clearInterval(b);
+		}
+        </script>
+    </head>
+    <body>
+    <form name="ff">
+    <div class="box">
+    <h2>setTimeout(fn, millisec)</h2>
+    <h2>setInterval(fn, millisec)</h2>
+    <pre>
+    
+    </pre>
+    <button onclick="fun1()" type="button">실행timeout</button>
+    <button onclick="fun2(this)" type="button" id="b2">실행interval</button>
+    <button onclick="fun3()" type="button">정지interval</button>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    </div>
+    <br>
+    <div class="box">
+    <h2>setTimeout/setInterval</h2>
+    <pre>
+    1초마다 녹색, 노란색으로 배경색 변경
+    setInterval(fn, millisec)
+    </pre>
+   
+    <button onclick="fun4(this)" type="button" id = "b4">turn on</button>
+    <button onclick="fun5(this)" type="button" id="b5" style="display:none">turn off</button>
+    <div id="result4"></div>
+    </div>
+    </form>
+    </body>
+</html>

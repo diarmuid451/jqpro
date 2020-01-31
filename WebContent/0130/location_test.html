@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			res = "href : "+location.href+"<br>";
+			res += "protocol : "+ location.protocol+"<br>";
+			res += "host : "+location.host+"<br>";
+			res += "hostname : "+location.hostname+"<br>";
+			res += "port : "+location.port+"<br>";
+			res += "pathname : "+location.pathname+ "<br>";
+			
+			document.getElementById("result1").innerHTML = res;
+			
+		}	
+		function fun2() {
+			location.href = "test.jsp";
+		}
+		function goPage() {
+			location.href = "test.jsp";
+		}
+		function goReplace() {
+			location.replace("test.jsp");
+		}
+		function goPagePost() {
+			mf = document.myform;
+			mf.action = "testpost.jsp";
+			mf.method = "post";
+			mf.submit();
+		}
+		function goReload() {
+			str = ["Hello","HTML","CSS","JAVASCRIPT","JSP","jQuery"];
+			
+			ran = Math.floor(Math.random()*str.length);
+			x = document.getElementById("result2");
+			x.innerHTML = "<h1>"+str[ran]+"</h1>";
+			x.style.color = "cyan";
+			
+			setTimeout(function() {
+				location.reload();
+			}, 1500);
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>Location객체</h2>
+    <pre>
+	url의 정보를 얻는다
+	href :		전체 url
+	port :
+	host : 		hostname과 port
+	hostname : 
+	pathname : 
+	protocol : 
+    </pre>
+    <button onclick="fun1()" type="button">location</button>
+    <div id="result1"></div>
+	<br>    
+    </div>
+    <div class="box">
+    <h2>Location객체</h2>
+    <pre>
+	- location객체의 사용
+		1. 자동으로 특정페이지로 이동할 때 사용
+		2. a태그 이용
+		3. 이벤트(get)
+		4. 이벤트(host)
+		5. 새로운 문서로 대체
+		6. 현재 문서를 다시 로드
+    </pre>
+    - 자동으로 특정페이지로 이동 할 때 사용 : location.href <br>
+    <button onclick="fun2()" type="button">자동으로 이동</button><br>
+    - a태그 이용 <br>
+    &nbsp;<a href="javascript:goPage()">a태그 이동</a><br>
+    - 이벤트(get) <br>
+    <button onclick="goPage()" type="button">get</button><br>
+    - 이벤트(post)
+    <form name="myform">
+    	<input type="hidden" name="abc" value="korea">
+    	<button onclick="goPagePost()" type="button">post</button><br>
+    </form>
+    - 새로운 문서로 대체 : 원래페이지로 돌아올 수 없음
+    <button onclick="goReplace()" type="button">대체</button><br>
+    - 현재 문서를 다시 로드
+    <button onclick="goReload()" type="button">재로드</button><br>
+   
+    <div id="result2"></div>
+    </div>
+    </body>
+</html>

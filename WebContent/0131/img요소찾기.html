@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			f= document.ff;
+			
+			nameValue = f.name.value;
+			telValue = f.tel.value;
+			
+			myimg1 = document.myimg[0].src;
+			myimg2 = document.myimg[1].src;
+			
+			res = "이름 : "+nameValue+"<br>";
+			res += "전화번호 : "+telValue+"<br>";
+			res += "이미지1 : "+myimg1+"<br>";
+			res += "이미지2 : "+myimg2+"<br>";
+			
+			document.getElementById("result1").innerHTML = res; 
+			
+		}	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>name을 이용한 html요소 찾기</h2>
+    <pre>
+    -tagname으로 접근 : 인덱스가 항상 필요
+    ex) document.getElementByTagName("div")[0]
+    	
+    -name으로 접근 : 같은 이름이 여러개 있을 경우에만 인덱스를 붙인다.
+    ex) document.formname.inputname			//input요소는 form요소를 거쳐서 찾는다.
+    	document.imgname[0]					//img요소는 form요소를 거치지 않는다.
+    </pre>
+    <img src="../images/coffee1.jpg" alt="커피1" name = "myimg">
+    <form name="ff">
+    <input type="text" name="name"><br>
+    <input type="text" name="tel"><br>
+    <img src="../images/coffee1.gif" alt="커피01" name = "myimg">
+    <input type="button" value="확인" onclick="fun1()"> 
+    </form>
+    
+    <button onclick="fun1()" type="button">실행</button>
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>

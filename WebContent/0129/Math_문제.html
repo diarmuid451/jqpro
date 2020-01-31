@@ -8,10 +8,22 @@
         <title>Document</title>
         <style></style>
         <script>
+			ran = Math.floor(Math.random()*10+1);
+		function fun0(){
+			
+			val = document.getElementById("zero").value;
+			res = "랜덤값 : "+ ran + "<br>" ;
+			
+			x = document.getElementById("result1");
+			
+			if(ran > val) x.innerHTML = "더 큰 수를 입력해 주세요.";
+			else if(ran < val) x.innerHTML = "더 작은 수를 입력해 주세요.";
+			else x.innerHTML = "정답입니다."
+		}	
+			
         function fun1() {
 			//난수 발생 1~10
 			ran = Math.floor(Math.random()*10+1);
-			
 			count = 0;
 			res = "랜덤값 : "+ ran + "\n입력값 : " ;
 			
@@ -52,8 +64,16 @@
 		}
         
        	function fun3() {
-			lot = new 
-       		x = Math.floor(Math.random()*45 +1);
+			var lot = new Array();
+       		var i = 0;
+       		while(i != 6) {
+       			var x = Math.floor(Math.random()*45 +1);
+ 			    if(lot.indexOf(x) == -1) {
+ 			    	lot.push(x);
+ 			    	i++;	
+ 			    }  			
+       		}
+       		document.getElementById("result3").innerHTML = lot;
 			
 		}
         </script>
@@ -65,7 +85,9 @@
     1 ~ 10 사이의 난수를 발생 후 사용자가 이 값을 맞추는 프로그램을 작성하시오.
     입력값에 따라 더 크게, 더 작게 힌트를 준다.
     </pre>
-    <button onclick="fun1()" type="button">도전</button>
+    <input id="zero" type="text">
+    <button onclick="fun0()" type="button">실행 input</button><br>
+    <button onclick="fun1()" type="button">실행 random</button>
     <div id="result1"></div>
     </div>
 

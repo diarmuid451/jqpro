@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			ultag = document.getElementsByTagName("ul")[0];
+			liList = ultag.getElementsByTagName("li");
+			res = "";
+			
+			for (var i = 0; i < liList.length; i++) {
+				res += "★ "+liList[i].firstChild.data+ "<br>";
+			}
+			document.getElementById("result1").innerHTML = res;
+		}	
+		function fun2(txt) {
+			txtnode = document.createTextNode(txt);
+			
+			//p태그 생성 >> p태그에 text추가
+			ptag = document.createElement('p');
+			ptag.appendChild(txtnode);
+			
+			//p태그를 div태그에 추가한다.			
+			document.getElementById("result2").appendChild(ptag);	
+			}
+		function fun3() {
+			ultag = document.getElementsByTagName("ul")[1];
+			liList = ultag.getElementsByTagName("li");
+			
+			for (var i = 0; i < liList.length; i++) {
+				//문자 가져오기
+				vtxt = liList[i].firstChild.data;
+				
+				//img태그 생성
+				imgtag = document.createElement("img");
+				
+				//img의 src, width, height 생성
+				imgtag.src = "../images/"+ vtxt+".jpg";
+				imgtag.width = "100";
+				imgtag.height = "100";
+				//liList에 img태그를 추가하기
+				liList[i].appendChild(imgtag);
+				
+			}
+		}
+		function fun4(it) {
+				
+				vtxt = it.firstChild.data;	
+			
+				imgtag = document.createElement("img");
+				
+				//img의 src, width, height 생성
+				imgtag.src = "../images/"+ vtxt+".jpg";
+				imgtag.width = "100";
+				imgtag.height = "100";
+				
+				//liList에 img태그를 추가하기
+				it.appendChild(imgtag);
+				
+			
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>DOM 순회</h2>
+    <pre>
+       각 li요소들의 첫번째 child를 검색	  
+     - firstChild	: Object Text
+    	data		: Object Text의 값
+    </pre>
+    <ul>
+    	<li>HTML</li>
+    	<li>CSS</li>
+    	<li>JavaScript</li>
+    	<li>jQuery</li>
+    </ul>
+    <button onclick="fun1()" type="button">실행</button>
+    <div id="result1"></div>
+    </div>
+
+    <div class="box">
+    <h2>DOM 순회</h2>
+    <pre>
+       새로운 text 요소 추가
+    createTextNode("문자열")
+       부모요소.appendChild("새로운 자식 요소") 
+    </pre>
+    <button onclick="fun2('무궁화 꽃이 피었습니다.')" type="button">실행</button>
+    <div id="result2"></div>
+    </div>
+
+    <div class="box">
+    <h2>DOM 순회</h2>
+    <pre>
+    - li의 문자열을 검색 후 가져오기
+    - 해당 문자열로 img 요소 추가
+    	imgtag = createElement("img")
+    	imgtag.src = "문자열.확장자"
+    - 이미지를 li요소에 추가	
+    	부모요소.appenChild("img요소")   
+    </pre>
+     <ul>
+    	<li>sunshine</li>
+    	<li>storm</li>
+    	<li>hubble</li>
+    	<li>hqdefault</li>
+    	<li>ink</li>
+    </ul>
+    <button onclick="fun3()" type="button">실행</button>
+    </div>
+
+    <div class="box">
+    <h2>DOM 순회</h2>
+    <pre>
+    - li의 문자열을 검색 후 가져오기
+    - 해당 문자열로 img 요소 추가
+    	imgtag = createElement("img")
+    	imgtag.src = "문자열.확장자"
+    - 이미지를 li요소에 추가	
+    	부모요소.appenChild("img요소")   
+    </pre>
+     <ul>
+    	<li onclick="fun4(this)">sunshine</li>
+    	<li onclick="fun4(this)">storm</li>
+    	<li onclick="fun4(this)">hubble</li>
+    	<li onclick="fun4(this)">hqdefault</li>
+    	<li onclick="fun4(this)">ink</li>
+    </ul>
+    </div>
+    
+    </body>
+</html>

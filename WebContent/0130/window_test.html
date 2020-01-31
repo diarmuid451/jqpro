@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        function fun1() {
+			window.open("winsub.html"," ","width=800 height=800")  
+			.moveTo(200, 200);
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>window객체</h2>
+    <pre>
+    window.open(url, name || target, specs); 새로운 창 열기
+    새로열린 창이 자식창이고 자식창에서 부모창을 가리킬 때 호칭은 opener
+    버튼을 클릭하면 새로운 창을 열고 이름과 전화번호를 입력받아서 부모창에 출력한다.
+    </pre>
+    <button onclick="fun1()" type="button">open</button>
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>
