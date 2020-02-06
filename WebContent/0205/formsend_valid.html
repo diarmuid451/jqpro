@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/formsend_valid.js"></script>
         <title>Document</title>
         <style>
         	label {
@@ -18,8 +19,15 @@
 			}
         </style>
         <script>
-		function idCheck() {
-			
+		function fun1() {
+			if(sendFun()) {
+				res = "제출 성공했습니다."
+				x =	document.getElementById("result2");
+				x.innerHTML = res;
+				x.style.color = "red";
+				x.style.fontSize = "1.5em";
+				
+			}
 		}	
         </script>
     </head>
@@ -33,13 +41,14 @@
     		<label>패스워드</label><input type="password" name="pass"><br>
     		<label>패스워드 확인</label><input type="password" name="passCheck"><br>
     		<label>이름</label><input type="text" name="name"><br>
-    		<label>성별</label>	<input type="radio" value="남자" name="gender">남자 &nbsp;<input type="radio" value="여자" name="gender">여자<br>
+    		<label>성별</label>	<input type="radio" value="남자" name="gender" checked>남자 &nbsp;<input type="radio" value="여자" name="gender">여자<br>
     		<label>휴대폰 번호</label><input type="text" name="tel"><br>
     		<label>이메일</label><input type="text" name="mail"><br>
     	</fieldset>
-    	<button>제출</button>
+    	<button type="button" onclick="fun1()">제출</button>
 		<button type="reset">초기화</button>
     </form>
     </div>
+	<div class="box" id="result2"></div>
     </body>
 </html>

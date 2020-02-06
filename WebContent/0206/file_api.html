@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        img {
+			width: 200px;
+			height: 200px;
+			display: none;
+		}
+        </style>
+        <script>
+		function fun1() {
+			f = document.ff;
+			vfile = f.file.files[0];
+			lastDate = vfile.lastModifiedDate.toLocaleDateString();
+			
+			str = "";
+			str += "이름 : "+vfile.name+ "<br>";
+			str += "크기 : "+vfile.size+ "<br>";
+			str += "유형 : "+vfile.type+ "<br>";
+			str += "변경날짜 : "+lastDate+ "<br>";
+			
+			info = document.getElementById("info");
+			info.innerHTML = str;
+			info.style.fontSize = "1.5em";
+			info.style.color = "mediumspringgreen";
+			
+			fr = new FileReader();
+			
+			//fr.readAsText(vfile, "UTF-8");
+			//fr.readAsDataURL(vfile);
+			if(vfile.name.match("jpg|gif|png")) {
+				fr.readAsDataURL(vfile);
+			} else {
+				fr.readAsText(vfile, "UTF-8");
+			}
+			
+			
+			fr.onload = function() {
+				document.getElementById("result1").innerHTML = fr.result;
+				if(fr.result.match("image")) {
+					imgView = document.getElementById("imgView");
+					imgView.src = fr.result;
+					imgView.style.display = "block";
+				} else {
+					imgView.style.display = "none";
+				}
+			}
+			
+			//읽은 값을 result라는 속성에 저장 된다.
+			
+			
+		}	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>File읽기</h2>
+    <pre>
+    input type = "file"일 경우 선택한 파일을 가져온다.
+    ex) f.file.files[0]
+      
+    File객체 : 파일의 기본정보를 얻는다.
+    이름(name), 크기(size), 종류(type), 변경날짜(lastModifyDate)
+    
+    FileReader객체 : 파일의 내용을 읽을 수 있는 기능을 제공한다.
+    메소드
+    readAsText(file객체, 인코딩)
+    readAsDataURL(file객체)
+    속성
+    result : 읽어온 파일의 내용이 저장되어 있다.
+    error : 오류정보가 저장된다.
+    </pre>
+    <form action="" name="ff">
+    파일 <input type="file" name="file">
+    <button onclick="fun1()" type="button">읽기</button>
+    </form>
+    <div id="result1"></div>
+    </div>
+    
+    <div class="box">
+    <h2>File정보 출력</h2>
+    <pre>
+    	img파일을 읽으면 해당 이미지가 표시된다.
+    	img가 아닌 파일을 읽으면 이미지는 사라진다.
+    </pre>
+    <img id="imgView" alt="" src="../images/아메리카노.jpg"><br>
+    <div id="info"></div>
+    </div>
+    </body>
+</html>
