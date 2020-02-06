@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        	table {
+        		border: 1px solid #fff;
+        		border-collapse: collapse;
+        	}
+        	
+        	td{
+        		text-align: center;
+        	}
+        	
+        	img {
+        		width: 90%;
+        		height: 90%;
+        	}
+        	#man, #com{
+        		height: 40px;
+        	}
+        	#man {
+        		background: yellow;
+        	}
+        	#com {
+        		background-color: crimson;
+        	}
+        </style>
+        <script>
+		function fun1() {
+			str =  ["가위", "바위", "보"];
+        	ran = Math.floor(Math.random()*3);
+        	com = str[ran];
+        	
+        	
+        	me = prompt("가위바위보를 입력해주세요.");
+        	document.human.src = "../images/"+me+"_좌.PNG";
+        	document.computer.src = "../images/"+com+"_우.PNG";
+        	win = document.getElementById("winner");
+        	
+        	if(me == com){
+        		win.textContent = "결과 : 비겼습니다.";
+        	} else if(me =="가위" && com == "보" || me =="바위" && com == "가위" || me == "보" && com == "바위") {
+        		win.textContent = "결과 : 당신이 이겼습니다.";
+        	} else {
+        		win.textContent = "결과 : 당신이 졌습니다.";
+        	}
+        	
+		}	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre>
+    버튼을 클릭하면 컴퓨터는 랜덤, 사람은 입력
+    승자를 판별한다.
+    </pre>
+    <table border="1">
+   		<tr>
+   			<td colspan="2">
+			    <button onclick="fun1()" type="button">게임시작</button>
+   			</td>
+    	</tr>	
+    	<tr>
+			<td id="man">사람</td>
+			<td id="com">컴퓨터</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<img name="human" src="../images/가위_좌.PNG">
+    		</td>
+    		<td>
+    			<img name="computer" src="../images/가위_우.PNG">    		
+    		</td>
+    	</tr>
+    	<tr>	
+    		<td colspan="2" id="winner">
+    		<br>
+    		</td>
+    	</tr>	
+    </table>
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>

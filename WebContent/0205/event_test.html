@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+        window.onload = function() {
+        	btn1 = document.getElementById("btn1");
+        	result1 = document.getElementById("result1");
+        }
+		function downFun() {
+				//버튼 누룰때
+				btn1.style.background = "green";
+				btn1.style.color = "hotpink";
+		}	
+		function upFun() {
+				//누른 버튼을 놓을때
+			btn1.style.background = "blue";
+			btn1.style.color = "white";
+		}	
+		function overFun() {
+			result1.style.background = "darkgray";
+			result1.style.height = "50px";
+			btn1.style.display = "block";
+		}	
+		function outFun() {
+			result1.style.background = "white";
+			result1.style.height = "auto";
+		}
+		function dblFun() {
+			btn1.style.display = "none";
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre>
+    onmousedown : 마우스 누를때
+    onmouseup	: 마우스 놓을때(drag & drop이 아니다.)
+    onmouseover	: 마우스가 위에 올때
+    onmouseout	: 마우스가 나갈때
+    onclick		: 마우스 클릭
+    ondlclick	: 마우스 더블클릭
+    </pre>
+    <button onmousedown="downFun()" onmouseup="upFun()" ondblclick="dblFun()" type="button" id="btn1">실행</button><br>
+    <div id="result1" onmouseover="overFun()" onmouseout="outFun()"></div>
+    </div>
+    </body>
+</html>

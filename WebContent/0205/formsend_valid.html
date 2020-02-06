@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        	label {
+        		display : inline-block;
+        		width: 140px;
+        		margin: 10px;
+        	}
+        	fieldset {
+			width: 50%;
+			line-height: 10px;
+			}
+        </style>
+        <script>
+		function idCheck() {
+			
+		}	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <form action="" name="ff">
+    	<fieldset>
+    		<legend>회원정보입력</legend>
+    		<label>아이디</label><input type="text" name="id">&nbsp;<button type="button" onclick="idCheck()">id검사</button><br>
+    		<label>패스워드</label><input type="password" name="pass"><br>
+    		<label>패스워드 확인</label><input type="password" name="passCheck"><br>
+    		<label>이름</label><input type="text" name="name"><br>
+    		<label>성별</label>	<input type="radio" value="남자" name="gender">남자 &nbsp;<input type="radio" value="여자" name="gender">여자<br>
+    		<label>휴대폰 번호</label><input type="text" name="tel"><br>
+    		<label>이메일</label><input type="text" name="mail"><br>
+    	</fieldset>
+    	<button>제출</button>
+		<button type="reset">초기화</button>
+    </form>
+    </div>
+    </body>
+</html>

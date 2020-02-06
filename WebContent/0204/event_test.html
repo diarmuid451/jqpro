@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function changeColor(color) {
+		res = document.getElementById("result1");
+		res.style.background = color;
+		}	
+		function loadFun() {
+			document.body.style.background = "mediumspringgreen";
+		} 
+		window.onload = function(){
+			document.body.style.background = "yellow";
+		}
+		
+		function nameFun() {
+			f = document.ff;
+			vname = f.name.value;
+			val = "";
+		for (var i = 0; i < vname.trim().length; i++) {
+			if(vname.substr(i,1) >= "A" && vname.substr(i,1) <= "Z") {
+				val += vname.substr(i,1).toLowerCase();
+			}else if(vname.substr(i,1) >= "a" && vname.substr(i,1) <="z") {
+				val += vname.substr(i,1).toUpperCase();
+			}
+		}	
+			f.name.value = val;
+		}
+		
+        </script>
+    </head>
+    <body onload="loadFun()"> 
+    <div class="box">
+    <h2></h2>
+    <pre>
+    body onload="loadFun()" 와
+    window.onload = function() 가
+    같이 있을경우 window.onload는 무시된다. 
+    </pre>
+    <input type="radio" name="color" onclick="changeColor('cyan')">싸이언
+    <input type="radio" name="color" onclick="changeColor('crimson')">크림슨
+    <div id="result1"></div>
+    <form action="" name="ff">
+    이름 : <input type="text" name="name" onchange="nameFun()">
+    &nbsp;&nbsp;&nbsp;
+	선택 : 
+	<select name="sel" onchange="selFun()">
+		<option value="봄">봄</option>
+		<option value="여름">여름</option>
+		<option value="가을">가을</option>
+		<option value="겨울">겨울</option>
+	</select>
+    </form>
+    </div>
+    </body>
+</html>

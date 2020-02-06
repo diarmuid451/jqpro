@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style>
+        	img {
+        		width: 100px;
+        		height: 100px;
+        	}
+        </style>
+        <script>
+		function fun1(but) {
+			but.style.display = "none";
+			document.getElementsByTagName("button")[1].style.display = "inline";
+			x = setInterval(function() {
+				//result1으로 접근 검색 - 부모
+				parent = document.getElementById("result1");
+				//img태그로 접근 검색 - 자식
+				//child = document.getElementsByTagName("img")[0];
+				child = parent.firstChild;
+				 
+				//삭제 - 부모.removeChild(자식);
+				
+				//parent.removeChild(child);
+				
+				//삭제된 요소를 부모의 마지막요소로 추가한다.
+				//appendChild는 새로운 요소를 추가하거나 기존에 있는 요소를 잘라낸 뒤 마지막에 추가한다.
+				parent.appendChild(child);
+				
+			}, 500);
+			
+		}	
+		function fun2(but) {
+			but.style.display = "none";
+			document.getElementsByTagName("button")[0].style.display = "inline";
+			clearInterval(x);
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre>
+	0.5초마다 한번씩 실행한다.
+	첫번째 이미지를 삭제한 뒤 마지막에 추가한다.
+    </pre>
+    <button onclick="fun1(this)" type="button">실행</button>
+    <button onclick="fun2(this)" type="button" style="display:none">멈춤</button>
+    <div id="result1">
+    	<img alt="" src="../images/aslan.jpg">
+    	<img alt="" src="../images/dog.png">
+    	<img alt="" src="../images/hubble.jpg">
+    	<img alt="" src="../images/ink.jpg">
+    	<img alt="" src="../images/Lee.jpg">
+    	<img alt="" src="../images/western.jpg">
+    </div>
+    </div>
+    </body>
+</html>

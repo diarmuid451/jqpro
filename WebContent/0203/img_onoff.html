@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			vsrc = document.onoff;
+			
+			if(vsrc.src.match("switch1_off")) {
+				
+				vsrc.src = "../images/switch1_on.png";
+			} else {
+				vsrc.src = "../images/switch1_off.png";
+			}
+		}	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>일부분의 문자열 비교</h2>
+    <pre>
+    	match(/정규식/)
+    	match("일반문자")
+		전체문자열중에 일부분의 일치하는 문자가 있는지 판별 
+		일치하는 문자가 있으면 해당 문자들을 리턴, 없으면 null을 리턴
+		
+		이름이 onoff인 이미지요소에 접근, src속성값을 얻고
+		거기서 switch1_off라는 문자와 일치하는 문자가 있나 없나를 판별 
+			vsrc = document.onoff;
+			
+			if(vsrc.src.match("switch1_off")) {
+				
+				vsrc.src = "../images/switch1_on.png";
+			} else {
+				vsrc.src = "../images/switch1_off.png";
+			}  	
+    </pre>
+   	<img alt="off" name="onoff" onclick="fun1()" src="../images/switch1_off.png">
+    </div>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <title>Document</title>
+        <style></style>
+        <script>
+		function fun1() {
+			x = document.ff;
+			a = x.dan.value;
+			str = "";
+			for (var i = 1; i < 10; i++) {
+				str += a+" * "+ i + " = "+ a*i + "\r\n" ;
+			}
+			x.area.value = str;
+			x.area.style.fontsize = "1.5em";
+		}
+		function fun2() {
+			//입력한 값을 가져온다.
+			xf = document.fff
+			namex = xf.name.value;
+			genderx = xf.gender.value;
+			hobbyx = "";
+			for (var i = 0; i < xf.hobby.length; i++) {
+				//체크 상태값을 얻는다
+				if(xf.hobby[i].checked) {
+					hobbyx += xf.hobby[i].value + ",";
+				}
+			}
+			hobbyx = hobbyx.substring(0, hobbyx.lastIndexOf(","));	
+			res = namex + "씨!\n"+"당신은 "+genderx+"자이고,\n취미는 "+
+			hobbyx+"이군요!";
+			xf.area.value = res;
+			xf.area.style.fontSize = "1.5em";
+		}
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre>
+    name을 이용한 접근
+    x = document.ff; 
+    
+	입력 텍스트에서 값 가져오기 : value
+	a = x.dan.value;
+	
+	텍스트 에어리아에 출력하기 : value
+	x.area.value = str;
+    </pre>
+    <form name="ff">
+    <input type="text" size="2" name="dan"> 단
+    <button onclick="fun1()" type="button">실행</button>
+    <div id="result1">
+    	<textarea name="area" rows="10" cols="30"></textarea>
+    </div>
+    </form>
+    </div>
+
+    <div class="box">
+    <h2>정보 출력</h2>
+    <pre>
+    xf = document.fff
+			namex = xf.name.value;
+			genderx = xf.gender.value;
+			hobbyx = "";
+			for (var i = 0; i &lt; xf.hobby.length; i++) {
+				//체크 상태값을 얻는다
+				if(xf.hobby[i].checked) {
+					hobbyx += xf.hobby[i].value + ",";
+				}
+			}
+			hobbyx = hobbyx.substring(0, hobbyx.lastIndexOf(","));	
+			res = namex + "씨!\n"+"당신은 "+genderx+"자이고,\n취미는 "+
+			hobbyx+"이군요!";
+			xf.area.value = res;
+			xf.area.style.fontSize = "1.5em";
+    </pre>
+    <form name="fff">
+    이  름 : <input type="text" name="name"><br>
+   성  별 : <input type="radio" checked value="남" name="gender">남 
+   		<input type="radio" value="여" name="gender">여<br>
+  취  미 : <input type="checkbox" value="여행" name="hobby">여행  
+ <input type="checkbox" value="독서" name="hobby">독서  
+  <input type="checkbox" value="영화감상" name="hobby">영화감상  
+   <input type="checkbox" value="바둑" name="hobby">바둑 
+  <input type="checkbox" value="장기" name="hobby">장기 
+ <input type="checkbox" value="등산" name="hobby">등산 
+ <input type="checkbox" value="낚시" name="hobby">낚시 
+ <br> 
+    <button onclick="fun2()" type="button">결과 출력</button>
+    <div id="result2">
+    	<textarea name="area" rows="10" cols="50"></textarea>
+    </div>
+    </form>
+    </div>
+    </body>
+</html>
