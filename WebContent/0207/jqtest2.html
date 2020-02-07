@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+       	/*  window.onload = function() {
+       		$("h1").css("color", "red");
+       		console.log("red");
+       	}   */
+       	
+		$(document).ready(function() {
+			vh = $(".box1 h1");
+			vh.css("color","blue");
+			vh.css("background", "silver");
+			
+			/* $("h1").css("color","blue");
+			console.log("blue");  */
+			$("button#btn1").on("click", function() {
+				
+				for (var i = 0; i < vh.length; i++) {
+					
+				cr = parseInt(Math.random()*255);
+				cg = parseInt(Math.random()*255);
+				cb = parseInt(Math.random()*255);
+				
+				$("h1:eq(+"+i+")").css("color","rgb("+cr+","+cg+","+cb+")");
+				}
+				
+			})
+			
+			$("#btn2").on("click", function() {
+				$(".box2 *").css("background","gold");
+				$(".box2 h1").css("color","blue");
+				$("#para").css("color","green");
+				$(".sample").css("color","red");
+			})
+		}) 
+       	
+		
+       	</script>
+    </head>
+    <body>
+    <div class="box box1">
+    <h2></h2>
+    <pre></pre>
+    <h1>무궁화 꽃이 흐아~</h1>
+    <h1>무궁화 꽃이 조아~</h1>
+    <h1>무궁화 꽃이 노아~</h1>
+    <h1>무궁화 꽃이 고아~</h1>
+    <h1>무궁화 꽃이 보아~</h1>
+    <h1>무궁화 꽃이 보아~</h1>
+    <button type="button" id="btn1">실행</button>
+    <div id="result1"></div>
+    </div>
+    
+    <div class="box box2">
+    <h2></h2>
+    <pre>
+    전체 배경색을 변경 
+  h1요소의 글자색을 파랑 
+  id가 para인 요소의 글자색은 녹색
+  class 가 sample요소의 글자색은 빨강
+	     </pre>
+     <h1> 제목입니다 </h1>
+		 <h2 id="para"> 작은 제목입니다 </h2>
+		 <h2 class="sample"> 샘플입니다 </h2>
+    <button type="button" id="btn2">실행</button>
+    </div>
+    </body>
+</html>

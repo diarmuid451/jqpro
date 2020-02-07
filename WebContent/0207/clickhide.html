@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        #btn1 {
+         display: none;
+        }
+        </style>
+        <script>
+		 // $(document).ready(function() {
+			$(function() {
+				
+			 $("h1").on("click", function() {
+				 		//콜백함수 : 이름없이 버튼 클릭에 의해서 자동 호출 된다.
+				 $(this).hide();		
+			 	if($("h1:visible").length == 0) {
+			 		$("#btn1").show();
+			 	}
+			 });
+			 $("#btn1").on("click", function () {
+				 $("h1").show();
+				 $("#btn1").hide();
+			 });
+		 });
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h1>클릭하면 사라집니다. 안돼~</h1>
+    <h1>클릭하면 사라집니다. NO~</h1>
+    <h1>클릭하면 사라집니다. だめ~</h1>
+    <h1>클릭하면 사라집니다. 끄앙~</h1>
+    <h1>클릭하면 사라집니다. NEIN~</h1>
+    <h1>클릭하면 사라집니다. 으악~</h1>
+    <h1>클릭하면 사라집니다. 끼양~</h1>
+    <h1>클릭하면 사라집니다. 우욱~</h1>
+    <h1>클릭하면 사라집니다. FUC~</h1>
+    <h1>클릭하면 사라집니다. 크흑~</h1>
+    <h1>클릭하면 사라집니다. 웽~</h1>
+    <button id="btn1" type="button">보이기</button>
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>
