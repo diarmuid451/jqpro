@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link type="text/css" rel="stylesheet" href="../../css/mystyle.css">
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+// document).ready( 생략가능
+    $(function() {
+        
+        $('#btn1').on('click', function(){
+            var vh = $('body').html();
+            // html : #result1에 출력시 모든 태그가 실행된다.
+            // delegate로 인해서 하위에서 생긴 html내용들의 버튼은 실행되지 않는다.
+            $('#result1').html(vh)
+        });
+
+        $('#btn2').click(function(){
+            // body태그에서 태그없이 문자만을 가져온다.
+            var vt = $('body').text();
+            // text : #result에 출력시 모든 태그를 그냥 글자로 취급하여 출력
+            $('#result1').text(vt);
+        });
+
+        $('#btn3').on('click', function(){
+            // p가 여러개인경우 p태그의 html태그를 포함해서 
+            // 첫번째만 가져온다.  즉, 전체를 가져올때는 반복문을 사용해서 가져와야한다.
+            p = $('p').html();
+            $('#result1').html(p);
+        });
+        $('#btn4').on('click', function(){
+
+            
+            // p태그안의 문자만을 가져온다. 
+            // p태그가 여러개일때 모든 내용을 다 가져온다.
+            p = $('p').text();
+            $('#result1').text(p);
+        });
+
+        $('#btn5').on('click', function(){
+            str = "";
+            $.each($('p'),function(){
+                str += $(this).html();
+            })
+
+
+        /*
+            // .each() 실행시에는 
+                    function(index, element) 형식.  매개변수가 1개이면 인덱스 값이다.
+            $('p').each(function(i, k){
+
+                // this를쓰면 반복되면서 p태그가 하나씩 진행된당.
+                str += $(this).html();
+
+                // k = p[0], p[1]... 등으로 진행된다. p태그의 갯수만큼
+                // str += $(k).html(); // 이것도되네?
+
+                // str += $('p:eq('+i+')').html();
+            })
+        */
+            $('#result1').html(str);
+            // $('#result1').text(str);
+        })
+    })
+</script>
+<style>
+    
+</style>
+</head>
+<body>
+	<div class="box">
+<h2></h2>
+<pre>
+
+</pre>
+    <p>1 <a>홍길동</a></p>
+    <p>2 <a>개나리</a></p>
+    <p>3 <a>진달래</a></p>
+        <button type="button" id="btn1">html-body-get실행</button>
+        <button type="button" id="btn2">text-body-get실행</button>
+        <button type="button" id="btn3">p-html-get-실행</button>
+        <button type="button" id="btn4">p-text-get-실행</button>
+        <button type="button" id="btn5">html-p-get_반복문-실행</button>
+        <div id="result1"></div>
+    </div>
+</body>
+</html>

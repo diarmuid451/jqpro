@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        table{	
+        	width: 500px;
+        	height: 100px;
+        	text-align: center;
+        	border-collapse: collapse;
+        	margin: auto;
+        }
+        </style>
+        <script>
+		window.onload = function (){
+			$("#result1 li:first").css("background","yellow");
+			$("#result1 li:last").css("background","yellow");
+			$("#result1 li:eq(5)").css("background","red");
+			$("#result1 li:lt(4)").css("fontSize","2em");
+		};
+		$(function() {
+			$("#btn2").on("click",function() {
+				$("tr:odd").css("background", "pink");
+				$("tr:even").css("background", "darkgray");
+				$("tr:first").css({"background":"black","color":"ivory"})
+			});
+		});
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>기본필터</h2>
+    <pre>
+    :first
+    :last
+    :eq
+    :lt
+    </pre>
+    <div id="result1">
+    	<ul id="ul1">
+    		<li>ONE</li>
+    		<li>TWO</li>
+    		<li>THREE</li>
+    		<li>FOUR</li>
+    		<li>FIVE</li>
+    		<li>SIX</li>
+    		<li>SEVEN</li>
+    		<li>EIGHT</li>
+    		<li>NINE</li>
+    	</ul>
+    </div>
+    </div>
+    
+    <div class="box2">
+    <h2>기본필터</h2>
+    <pre>
+    :even
+    :odd
+    </pre>
+    <button id="btn2"type="button">실행</button><br>
+    <div id="result2">
+    <br>
+    	<table border="1">
+    		<tr>
+    			<th>이름</th>
+    			<th>가격</th>    			
+    		</tr>
+    		<tr>
+    			<td>one</td>
+    			<td>62만원</td>
+    		</tr>
+    		<tr>
+    			<td>two</td>
+    			<td>45만원</td>
+    		</tr>
+    		<tr>
+    			<td>three</td>
+    			<td>33만원</td>
+    		</tr>
+    		<tr>
+    			<td>four</td>
+    			<td>72만원</td>
+    		</tr>
+    		<tr>
+    			<td>five</td>
+    			<td>77만원</td>
+    		</tr>
+    		<tr>
+    			<td>six</td>
+    			<td>54만원</td>
+    		</tr>
+    		<tr>
+    			<td>seven</td>
+    			<td>61만원</td>
+    		</tr>
+    		<tr>
+    			<td>eight</td>
+    			<td>52만원</td>
+    		</tr>
+    		<tr>
+    			<td>nine</td>
+    			<td>88만원</td>
+    		</tr>
+
+    	</table>
+    </div>
+    </div>
+    </body>
+</html>

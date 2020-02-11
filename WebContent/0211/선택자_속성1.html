@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+		$(function() {
+			$('button').on('click',function() {
+				$('p[title]').css({"background" : "yellow","color" : "green"});
+				$('input[type=password]').css("border","2px solid red");
+			});
+		});
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>속성관련 선택자</h2>
+    <pre>
+    $('p[title]')
+    $('input[type=password]')
+    </pre>
+    <p> 일반 문단입니다 </p>
+  <p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다 </p>
+  <input type="text"> 회원번호 
+  <input type="password"> 비밀번호
+    <button id="btn1" type="button">실행</button>
+   
+    </div>
+    </body>
+</html>
