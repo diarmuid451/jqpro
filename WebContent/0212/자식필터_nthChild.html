@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        	table{
+        		margin: auto;
+        	}
+        	td { 
+        		width: 300px;
+        		height: 50px;
+        		text-align: center;
+        	}
+        </style>
+        <script>
+		$(function() {
+			$("button:eq(0)").on("click",function(){
+				$(".tab1 td:first-child").css("background","darkgray");
+				$(".tab1 td:nth-child(even)").css("background","gray");
+				$(".tab1 td:last-child").css("background","lightgray");
+			});
+			$("button:eq(1)").on("click",function(){
+				$(".tab2 tr:first-child").css({"background" : "black","color" : "white"});
+				$(".tab2 td:first-child").css("background","#ccffd9");
+				$(".tab2 td:nth-child(even)").css("background","#ccffff");
+				$(".tab2 td:last-child").css("background","#f2ccff");
+			});
+		});	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>자식필터</h2>
+    <pre>
+    :nth_child(인텍스)
+    :nth_child(even/odd)
+    :nth_child(수식)		ex) :nth_child(4n)
+    </pre>
+    <button type="button">실행</button>
+    <div id="result1">
+    	<table class="tab1" border="1">
+    		<tr>
+    			<th>이름</th>
+    			<th>주소</th>
+    			<th>전화번호</th>
+    		</tr>
+    		<tr>
+    			<td>홍길동</td>
+    			<td>대전</td>
+    			<td>010-2222-3333</td>
+    		</tr>
+    		<tr>
+    			<td>진달래</td>
+    			<td>서울</td>
+    			<td>010-4444-5555</td>
+    		</tr>
+    		<tr>
+    			<td>개나리</td>
+    			<td>부산</td>
+    			<td>010-7777-8888</td>
+    		</tr>
+    		<tr>
+    			<td>무궁화</td>
+    			<td>대구</td>
+    			<td>010-9999-0000</td>
+    		</tr>
+    	</table><br>
+    	<table class="tab2" border="1">
+    		<tr>
+    			<th>이름</th>
+    			<th>주소</th>
+    			<th>전화번호</th>
+    		</tr>
+    		<tr>
+    			<td>홍길동</td>
+    			<td>대전</td>
+    			<td>010-2222-3333</td>
+    		</tr>
+    		<tr>
+    			<td>진달래</td>
+    			<td>서울</td>
+    			<td>010-4444-5555</td>
+    		</tr>
+    		<tr>
+    			<td>개나리</td>
+    			<td>부산</td>
+    			<td>010-7777-8888</td>
+    		</tr>
+    		<tr>
+    			<td>무궁화</td>
+    			<td>대구</td>
+    			<td>010-9999-0000</td>
+    		</tr>
+    	</table>
+    </div>
+    <button type="button">실행</button>
+    </div>
+    </body>
+</html>

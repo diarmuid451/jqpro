@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        	img {
+        	width: 100px;
+        	height: 100px;
+        	}
+        </style>
+        <script>
+		$(function() {
+			$("#btn1").on("click", function() {
+				$("img").attr("title",function(){
+					// scr속성값을 가져온다.
+					str = $(this).attr("src");
+					
+					// 마지막/와 .의 위치(인텍스)를 얻는다.
+					start = str.lastIndexOf("/");
+					end = str.lastIndexOf(".");
+					
+					// 두 인덱스 사이의 값을 추출한다.
+					tit = str.substring(start+1, end);
+					
+					// 추출한 값을 리턴한다.
+					return tit;
+				})
+			})
+			$("#btn2").on("click", function() {
+				$("img").removeAttr("title")
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <img alt="" src="../images/게닛츠3.jpg">
+    <img alt="" src="../images/A7318518-E1B0-4A26-A06D-537FB1311CAB.jpg">
+    <img alt="" src="../images/western.jpg">
+    <img alt="" src="../images/14155D0B4A77138801.jpg">
+    <img alt="" src="../images/0002719863_001_20180812083015442.jpg"><hr>
+    <button type="button" id="btn1">title추가</button>
+    <button type="button" id="btn2">title제거</button>
+   
+    </div>
+    </body>
+</html>

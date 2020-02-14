@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+		$(function() {
+			$("#btn1").on("click",function(){
+				
+				str = "hidden 객체 : <br><br>";
+				
+				$("#testForm :hidden").each(function(i) {
+					
+					if (this.tagName == "INPUT") {
+						str += $(this).attr("name")+" : ";
+						str += $(this).val()+ "<br>";
+					} else {
+						
+						str += this.tagName + " : "+ $(this).text()+"<br>";
+					}
+				})
+				
+				$("#result1").html(str);
+				
+			})
+			
+			$("#btn2").on("click",function(){
+				
+				str = "visible 객체 : <br><br>";
+				
+				$("#testForm :visible").each(function(i) {
+					
+					if (this.tagName == "INPUT") {
+						
+						str += $(this).attr("name")+" : ";
+						str += $(this).val()+ "<br>";
+						
+					} else if(this.tagName != "BR"){
+						
+						str += this.tagName + " : "+ $(this).text()+"<br>";
+					}
+				})
+				$("#result2").html(str);
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>기타필터</h2>
+    <pre>
+    :visible
+    :hidden
+    </pre>
+    <form id="testForm"> 
+	<input type="hidden" name="userAge" value="33">
+	<input type="hidden" name="userCity" value="대전">
+	I D : <input type="text" name="userID" value="hong">  
+	<span style="display:none">ID가 중복됩니다. </span> <br>  
+	이름 : <input type="text" name="userName" value="홍길동">   
+	<span style="visibility:hidden">이름을 입력하세요</span><br>  
+	성별 : <input type="radio" name="sung" value="남" checked>남자  
+	<input type="radio" name="sung" value="여">여자  
+	</form>
+    
+    <button type="button" id="btn1">hidden</button>
+    <button type="button" id="btn2">visible</button>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    </div>
+    
+    </body>
+</html>

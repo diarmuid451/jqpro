@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+		$(function() {
+			$("#btnview").on("click", function() {
+				str = "";
+				str += "이름 : "+$("#user").val()+ "<br>";
+				str += "성별 : "+$(".gend").val()+ "<br>";
+				str += "직업 : " +$("option").val()+"<br>";
+				x = $("#intro").val();
+				x = x.replace(/\r/g,"").replace(/\n/g,"<br>");
+				str += "소개 : <br>"+x;
+				
+				$("#result1").html(str);
+				
+				str = str.replace(/<br>/g,"\r\n");
+				alert(str);
+			})
+		});	
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <form>
+      <label for="user">이름</label>
+    <input type="text" id="user" value="korea"><br>
+    <label >성별</label> 
+      <input type="radio" class="gend" name="gend" value="남자" checked >남자
+      <input type="radio" class="gend" name="gend" value="여자"  >여자<br>
+      <label for="intro">소개</label> 
+    <textarea id="intro" cols="40" rows="4"></textarea> <br>
+     <label for="work">직업</label>
+     <select id="work">
+       <option value="programmer">프로그래머</option>
+       <option value="progammer">프로게이머</option>
+       <option value="progay">프로게이</option>
+     </select><br>
+    <button id="btnview" type="button">조사하기 </button>
+    <button  id="btnchange" type="button">이름변경 </button>
+    </form>   
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>

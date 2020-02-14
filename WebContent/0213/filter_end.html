@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        .box div{
+         width: 50px;
+         height: 50px;
+         border : 2px solid cornflowerblue;
+         float : left;
+         
+        }
+        .box{
+        	height: auto;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#btn1").on("click", function(){
+				$(".box div").filter(":odd").eq(0).css("background","lightgreen")
+				.end().eq(1).css("background","blue")
+				.end().eq(2).css("background","orangered");			
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>end() : 선택을 되돌리기</h2>
+    <pre>
+    $("div").filter(":odd").eq(0).css()
+	$("div").filter(":odd").eq(1).css()
+	$("div").filter(":odd").eq(2).css()
+	
+	기준은 항상 $("div").filter(":odd") 홀수 번째이다.
+	메소드체인을 이용하기 위해서 end()를 이용한다.
+	$("div").filter(":odd").eq(0).css()
+	.end().eq(1).css()
+	.end().eq(2).css()
+    </pre>
+    <div>a</div> 
+	<div>b</div> 
+	<div>c</div> 
+	<div>d</div> 
+	<div>e</div> 
+	<div class="orange">f</div> 
+	<div>g</div>
+    <button type="button" id="btn1">실행</button>
+    </div>
+    </body>
+</html>

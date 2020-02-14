@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        p{
+        	font-size: 1.5em;
+        }
+        .pBack{
+        	background: darkturquoise;
+        }
+        </style>
+        <script>
+		$(function() {
+			$(".box1 p").on("click", function(){
+				$(this).css("font-size","+=2px");
+				
+				// 랜덤으로 배경색을 지정
+				colNum = "#" + Math.round( Math.random() * 0xFFFFFF ).toString(16);
+				$(this).css("background",colNum);
+			})
+			$("#btn1").on("click", function() {
+				psize = "폰트 사이즈 : "+$(".box1 p").css("font-size");
+				// 현재의 배경색을 16진수로 출력
+				psize += "\r\n현재의 배경색(16진수) : "+colNum;
+				$("#result1").html(psize)
+				
+			})
+			$("#btn2").on("click", function() {
+				$(".box2 p").addClass("pBack");
+			})
+			$("#btn3").on("click", function() {
+				$(".box2 p").removeClass("pBack");
+			})
+			$("#btn4").on("click", function() {
+				$(".box2 p").toggleClass("pBack");
+			})
+			
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box box1">
+    <h2>스타일 설정과 값 얻기</h2>
+    <pre></pre>
+    <p>JOHN SINA!!</p>
+    <button type="button" id="btn1">실행</button>
+    <div id="result1"></div>
+    </div>
+    
+    <div class="box box2">
+    <h2>class를 이용한 스타일 설정과 값없기</h2>
+    <pre>
+    addClass(class이름)		: class이름을 추가
+    removeClass(class이름)	: class이름을 삭제
+    toggleClass(class이름)	: class이름을 추가/삭제를 번갈아 한다
+    hasClass(class이름)		: 해당 class이름의 존재여부(boolean)
+    </pre>
+    <p>JOHN SINA DO!!</p>
+    <button type="button" id="btn2">addClass</button>
+    <button type="button" id="btn3">removeClass</button>
+    <button type="button" id="btn4">toggleClass</button>
+    <div id="result2"></div>
+    </div>
+    </body>
+</html>

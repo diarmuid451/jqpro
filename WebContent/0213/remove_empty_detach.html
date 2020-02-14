@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        #dd{
+        	background: goldenrod;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#emp1").on("click", function(){
+				$("#dd").empty();
+			})
+			$("#re1").on("click", function(){
+				$("#dd").remove();
+			})
+			$(".pp").on("click", function(){
+				$(this).css("font-size", "+=2px");
+			})
+			$("#re2").on("click",function(){
+				$("#p1").remove().appendTo("#result2");
+			})
+			$("#de2").on("click",function(){
+				$("#result2").append($("#p2").detach());
+			})
+			$("#cl").on("click",function(){
+				$("#p33").clone().prependTo("#result3");
+			})
+			$("#clt").on("click",function(){
+				$("#result3").prepend($("#p44").clone(true));
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>비우기와 지우기</h2>
+    <pre>
+    empty()  : 대상요소는 삭제하지 않고 자식요소들만 삭제한다.
+    remove()  : 대상요소와 자식요소들도 삭제한다.
+    </pre>
+    <div id="dd">
+    오늘은 목요일. 요가를 하는 날입니다. 여러분의 허리는 안녕하십니까? 저는 그렇지 않습니다.
+    왜냐구요? 요가 하는 날이면 언제나 허리가 작별인사를 나누기 때문입니다.
+    여러분. 요가는 고행입니다. 자신을 아끼는 사람이 됩시다.
+    </div><hr>
+    <button id="emp1" type="button">empty</button>
+    <button id="re1" type="button">remove</button>
+    <div id="result1"></div>
+    </div>
+    <div class="box">
+    <h2>삭제시 이벤트 확인</h2>
+    <pre>
+    remove() 	: 요소 삭제시 이벤트 핸들러도 삭제
+    detach() 	: 요소 삭제시 이벤트 핸들러는 보존
+    </pre>
+    <p class= "pp" id="p1">사라진다!!!!!!!!</p>
+    <p class= "pp" id="p2">나도 사라진다!!!!!!!</p>
+    <p class= "pp" id="p3">철수는 술래가 되었습니다.</p>
+    <p class= "pp" id="p4">철수가 주문을 외웁니다.</p>
+    <p class= "pp" id="p5">친구들이 사라졌습니다.</p>
+    <p class= "pp" id="p6">철수는 울었습니다.</p>
+    <button id="re2" type="button">remove</button>
+    <button id="de2" type="button">detach</button>
+     <div id="result2"></div>
+    </div>
+    <div class="box">
+    <h2>복사시 이벤트 확인</h2>
+    <pre>
+    clone() 		: 요소 복사시 이벤트 핸들러는 제외
+    clone(true) 	: 요소 복사시 이벤트 핸들러도 복사
+    </pre>
+    <p class= "pp" id="p11">무궁화 꽃이 피었습니다.</p>
+    <p class= "pp" id="p22">철수가 걸렸습니다.</p>
+    <p class= "pp" id="p33">복사된다!!!!!!</p>
+    <p class= "pp" id="p44">나도 복사된다!!!!!!</p>
+    <p class= "pp" id="p55">친구들이 사라졌습니다.</p>
+    <p class= "pp" id="p66">철수는 울었습니다.</p>
+    <button id="cl" type="button">clone</button>
+    <button id="clt" type="button">clone(true)</button>
+     <div id="result3"></div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        .box div{
+         width: 50px;
+         height: 50px;
+         border : 2px solid cornflowerblue;
+         float : left;
+        }
+        
+        .orange {
+        background : orange;
+        }
+        #pbox {
+        	border : 3px dotted firebrick;
+        	margin: 10px;
+        }
+        #gpbox{
+        	border : 3px solid black;
+        }
+        hr{
+        	clear : both;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#next").on("click",function() {
+				$("div.orange").next().css("background", "darkorange")
+			})
+			$("#nextAll").on("click",function() {
+				$("div.orange").nextAll().css("background", "darkorange")
+			})
+			$("#nextUntil").on("click",function() {
+				$("div.orange").nextUntil("div.stop").css("background", "darkorange")
+			})
+			$("#prev").on("click",function() {
+				$("div.orange").prev().css("background", "coral")
+			})
+			$("#prevAll").on("click",function() {
+				$("div.orange").prevAll().css("background", "coral")
+			})
+			$("#prevUntil").on("click",function() {				
+				$("div.orange").prevUntil("div.stop").css("background", "coral")
+			})
+			$("#parent").on("click",function() {				
+				$("div.orange").parent().css("background", "tomato")
+			})
+			$("#parents").on("click",function() {				
+				$("div.orange").parents().css("background", "tomato")
+			})
+			$("#parentsUntil").on("click",function() {				
+				$("div.orange").parentsUntil("#gpbox").css("background", "tomato")
+			})
+			$("#siblings").on("click",function() {				
+				$("div.orange").siblings().css("background", "orangered")
+			})
+			$("#ssiblings").on("click",function() {				
+				$("div.orange").siblings("div.stop").css("background", "orangered")
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div id="gpbox">
+    <div id="pbox">
+    <div class="box">
+    <pre></pre>
+    <div class="stop">a:look at me</div> 
+	<div>b</div> 
+	<div>c</div> 
+	<div class="orange">d</div> 
+	<div>e</div> 
+	<div>f</div> 
+	<div class="stop">g:look at me</div>
+	<hr>
+    <button type="button" id="next">next</button>
+    <button type="button" id="nextAll">nextAll</button>
+    <button type="button" id="nextUntil">nextUntil</button><hr>
+    <button type="button" id="prev">prev</button>
+    <button type="button" id="prevAll">prevAll</button>
+    <button type="button" id="prevUntil">prevUntil</button><hr>
+    <button type="button" id="parent">parent</button>
+    <button type="button" id="parents">parents</button>
+    <button type="button" id="parentsUntil">parentsUntil</button><hr>
+    <button type="button" id="siblings">siblings</button>
+    <button type="button" id="ssiblings">siblings(selector)</button>
+    </div>
+    </div>
+    </div>
+    </body>
+</html>

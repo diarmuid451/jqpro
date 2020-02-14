@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        img{
+        	width: 150px;
+        	height: 150px;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#btn1").on("click", function(){
+				setInterval(function() {
+					$("img:first").appendTo("#result1");
+				}, 2000);
+			})
+			
+			$("p").on("click", function(){
+				vtit = $(this).attr("title");
+				vtxt = $(this).text();
+				// 이미지 생성
+				$("<img>", {
+					"src" : "../images/"+vtit+".jpg",
+					"width" : "150px",
+					"height" : "150px"
+				}).appendTo(this)
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>이미지 이동</h2>
+    <pre>
+    img:first
+    append()/appendTo()
+    
+	추가할 때 기존의 요소를 추가하면 이동한다.
+	$("img:first").appendTo("#result1")
+	$("#result1").append("img:first")
+    </pre>
+    <button id="btn1" type="button">실행</button>
+    <div id="result1">
+    	<img alt="" src="../images/PIA03149_ip.jpg">
+    	<img alt="" src="../images/gradation1.jpg">
+    	<img alt="" src="../images/spongebob.png">
+    	<img alt="" src="../images/pizza.jpg">
+    	<img alt="" src="../images/aslan.jpg">
+    </div>
+    </div>
+    <div class="box">
+    <h2>이미지 추가</h2>
+    <pre>
+    p태그의 text를 클릭하면 그 문자에 맞는 이미지를 추가한다.
+    </pre>
+    <button id="btn2" type="button">실행</button>
+    <div id="result2">
+    	<p title="download">술</p>
+	 	<p title="download1">술-1</p>
+		<p title="download2">술-2</p>
+	 	<p title="download3">술-3</p> 
+	 	<p title="chicken">치킨</p> 
+    </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+		$(function() {
+			$("p").on("click",function(){
+				// 클릭한 p를 this로 받는다.
+				// this의 부모를 찾는다.
+				// 부모가 dis인지 비교
+				// 맞다면 p를 복사해서 부모에 붙여넣기 한다.
+				if($(this).parent().is(".dis")){
+					$(this).clone(true).appendTo($(this).parent());
+				} else {
+					alert("작업 대상이 아닙니다.");
+				}
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <p>도라라라라라라라라라라라라라라라라라라라라</p>
+    <div class="dis">
+    	<p>아리아리아리아리아리아리아리아리아리아리 아리베디치</p>
+    </div>
+    <div class="dis">
+    	<p>오라오라오라오라오라오라오라오라오라오라</p>
+    </div>
+    <p>무다무다무다무다무다무다무다무다무다</p>
+    
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>
