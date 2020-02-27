@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+		$(function() {
+		// $(".but").bind("click",function(){
+		   $(".but").on("click", function(){
+			 $("<button/>", {
+				 "class" : "but",
+				 "type" : "button",
+				 "text" : "새로운 버튼"
+				 }).appendTo("#result1")  
+			})
+			$("#clear").on("click", function(){
+				$(".but").off("click");
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre>
+    기존의 버튼에만 이벤트 핸들러가 적용되고 새롭게 만들어진 요소에는 이벤트 핸들러가 적용되지 않는다.
+    </pre>
+    <div id="d1">
+    <button class="but" type="button">버튼1</button>
+    <button class="but" type="button">버튼2</button>
+    <button class="but" type="button">버튼3</button>
+    </div>
+    <button type="button" id="clear">해제</button>
+    <div id="result1" class="dd"></div>
+    </div>
+    </body>
+</html>

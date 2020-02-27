@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        
+        <title>Document</title>
+        <style>
+        td{
+        	width: auto;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#btn1").on("click",function(){
+				$.ajax({
+					url : "/jqpro/LprodList",
+					success : function(res){
+						code = "";
+						$.each(res, function(i){
+							code += "<option value='"+res[i].gu+"'>"+res[i].nm+"</option>";
+						})
+						$("#lprod").html(code);
+						// $("#lprod").trigger("change");
+					
+					},
+					error : function(xhr){
+						alert("상태 : "+xhr.status);
+					},
+					dataType : "json"
+				})
+			})
+			$("#lprod").on("change", function(){
+				x = $("option:selected", this).val();
+				$.ajax({
+					url : "/jqpro/p.do",
+					type : "get",
+					data : {"lprod_gu": x},
+					success : function(res){
+						if (res.sw == "ok") {
+						code = "";
+						$.each(res.data, function(i){
+							code += "<option value ='"+res.data[i].id+"'>"+res.data[i].nm+"</option>";
+						})
+						$("#prod").html(code);
+				        // $("#prod").trigger("change");
+						} else if(res.sw == "no") {
+						code = "<option value = 0>데이터 없음</option>";
+						$("#prodVO").empty();
+						$("#prod").html(code);
+						}
+					
+					},
+					error : function(xhr){
+						alert("상태 : "+xhr.status);
+					},
+					dataType : "json"
+				})
+			})
+			$("#prod").on("change", function(){
+				y = $("option:selected", this).val();
+				$.ajax({
+					url : "/jqpro/p.do",
+					type : "post",
+					data : {"prod_id" : y},
+					success : function(res){
+						code = "<table border='1' id='list' class='table'>";
+						code += '<tr><th>항목</th><th>내용</th></tr>';
+						code += "<tr class='table-primary'><td>PROD_ID</td>";
+						code += "<td>"+res.id+"</td></tr>";
+						code += '<tr><td>PROD_NAME</td>';
+						code += "<td>"+res.name+"</td></tr>";
+						code += '<tr class="table-success"><td>PROD_LGU</td>';
+						code += "<td>"+res.lgu+"</td></tr>";
+						code += '<tr class="table-danger"><td>PROD_BUYER</td>';
+						code += "<td>"+res.buyer+"</td></tr>";
+						code += '<tr class="table-info"><td>PROD_COST</td>';
+						code += "<td>"+res.cost+"</td></tr>";
+						code += '<tr class="table-warning"><td>PROD_PRICE</td>';
+						code += "<td>"+res.price+"</td></tr>";
+						code += '<tr class="table-active"><td>PROD_SALE</td>';
+						code += "<td>"+res.sale+"</td></tr>";
+						code += '<tr class="table-secondary"><td>PROD_OUTLINE</td>';
+						code += "<td>"+res.outline+"</td></tr>";
+						code += '<tr class="table-light"><td>PROD_detail</td>';
+						code += "<td>"+res.detail+"</td></tr>";
+						code += '<tr class="table-dark text-dark"><td>PROD_TOTALSTOCK</td>';
+						code += "<td>"+res.totalstock+"</td></tr>";
+						code += '<tr class="table-primary"><td>PROD_PROPERSTOCK</td>';
+						code += "<td>"+res.properstock+"</td></tr>";
+						code += '<tr class="table-success"><td>PROD_SIZE</td>';
+						code += "<td>"+res.size+"</td></tr>";
+						code += '<tr class="table-danger"><td>PROD_COLOR</td>';
+						code += "<td>"+res.color+"</td></tr>";
+						code += '<tr class="table-info"><td>PROD_UNIT</td>';
+						code += "<td>"+res.unit+"</td></tr>";						
+						code += '<tr class="table-warning"><td>PROD_QTYIN</td>';
+						code += "<td>"+res.qtyin+"</td></tr>";						
+						code += '<tr class="table-active"><td>PROD_QTYSALE</td>';
+						code += "<td>"+res.qtysale+"</td></tr>";						
+						code += "</table>";
+						
+						$("#prodVO").html(code);
+					},
+					error : function(xhr){
+						alert("상태 : "+xhr.status);
+					},
+					dataType : "json"
+					
+				})
+			})
+			
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <button type="button" id="btn1">실행</button>
+    <div id="result1">
+    	<div class="container">
+  		<h2>제품분류에 따른 상품 목록 및 상세 정보</h2>
+  		<form action="/action_page.php">
+   		 <div class="form-group">
+      	<label for="lprod">제품 분류 리스트</label>
+      	<select class="form-control" id="lprod">
+       
+      	</select>
+		<br>
+      	<label for="lprod">상품 리스트</label>
+      	<select class="form-control" id="prod">
+       
+      	</select>
+    </div>
+  </form>
+</div>
+    </div>
+    <div id="prodVO"></div>
+    </div>
+    </body>
+</html>

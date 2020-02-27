@@ -24,7 +24,17 @@
 				str = str.replace(/<br>/g,"\r\n");
 				alert(str);
 			})
-		});	
+			$("#btnchange").on("click",function(){
+				// btnchange버튼은 submit기능을 수행하는 버튼이다.
+				// 그 기능을 제가하기 위해 preventDefault 사용
+				event.preventDefault();
+				
+				// 이름 입력
+				name = prompt("이름을 입력해 주세요");
+				// id = user인 input요소의 값으로 설정
+				$("#user").val(name);
+			})
+		})
         </script>
     </head>
     <body>

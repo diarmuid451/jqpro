@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        .box{
+        	text-align: center;
+        }
+        .box img{
+        	border-radius : 100%;
+        	width:150px;
+        	height: 150px;
+        	float: left;
+        }
+        .box p{
+        	clear: both;
+        }
+        #result1{
+        	height: 300px;
+        }
+        .pot{
+        	border: 10px double crimson;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#start").on("click", function(){
+				$(this).hide();
+				$("img").removeClass("pot");
+				x = setInterval(function() {
+					$("img:first").appendTo("#result1");
+				}, 20);	
+			})
+			$("#finish").on("click", function(){
+				$("#start").show();
+				clearInterval(x);				
+				ran = Math.floor(Math.random()*$("img").length);
+				$("img:eq("+ran+")").addClass("pot");
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>진행중인 이벤트</h2>
+    <h3>100% 당첨</h3>
+    <div id="result1">
+    <img alt="" src="../images/게닛츠3.jpg">
+    <img alt="" src="../images/흥국제로.jpg">
+    <img alt="" src="../images/오메가루갈.jpg">
+    <img alt="" src="../images/리얼제로.jpg">
+    <img alt="" src="../images/이그니스.jpg">
+    <img alt="" src="../images/A7318518-E1B0-4A26-A06D-537FB1311CAB.jpg">
+    <img alt="" src="../images/카푸치노.jpg">
+    </div>
+    <br><br>
+   	<p>환영합니다. start버튼을 눌러주세요. 당신에게 행운을 드립니다.</p>
+    <button type="button" id="start">시작</button>
+    <button type="button" id="finish">종료</button>
+   	</div>
+    </body>
+</html>

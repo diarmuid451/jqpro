@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="buyer">
+<!--buyer name 목록  -->
+<select id="buyerList" resultClass="BuyerVO">
+	select buyer_name,buyer_id from buyer 
+</select>
+
+<!--출력된 buyer name을 클릭시 나타낼 상세 항목  -->
+<select id="checkList" resultClass="BuyerVO" parameterClass="String">
+	select * from buyer where buyer_id = #data#
+</select>
+
+</sqlMap>

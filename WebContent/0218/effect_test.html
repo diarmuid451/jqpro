@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        .box {
+   			float: left;     
+        }
+        .box img{
+        	width: 200px;
+        	height: 150px;
+        	clear: both;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#show").on("click",function(){
+				$("img").show(3000,"swing",function(){
+					alert("I am the King of Justice")
+				});
+			})
+			$("#hide").on("click",function(){
+				$("img").hide(1000,"linear",function(){
+					alert("You are not Ready")
+				});
+			})
+			$("#toggle").on("click",function(){
+				$("img").toggle(500);
+			})
+			$("#sup").on("click",function(){
+				$("img").slideUp("fast");
+			})
+			$("#sdown").on("click",function(){
+				$("img").slideDown("slow");	
+			})
+			$("#stog").on("click",function(){
+				$("img").slideToggle(1000);
+			})
+			$("#fin").on("click",function(){
+				$("img").fadeIn("fast");
+			})
+			$("#fout").on("click",function(){
+				$("img").fadeOut("slow");
+			})
+			$("#fto").on("click",function(){
+				$("img").fadeTo(1000, 0.5)
+			})
+			$("#ftog").on("click",function(){
+				$("img").fadeToggle(600);
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>effect(효과)</h2>
+    <pre>
+    $(selector).show(speed, easing, callback)
+    </pre>
+    <button type="button" id="show">Show It</button>
+    <button type="button" id="hide">Hide It</button>
+    <button type="button" id="toggle">Toggle</button>
+    <button type="button" id="sup">SlideUp</button>
+    <button type="button" id="sdown">SlideDown</button>
+    <button type="button" id="stog">SlideToggle</button>
+    <button type="button" id="fin">FadeIn</button>
+    <button type="button" id="fout">FadeOut</button>
+    <button type="button" id="fto">FadeTo</button>
+    <button type="button" id="ftog">FadeToggle</button><br>
+    <img alt="" src="../images/aslan.jpg">
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>

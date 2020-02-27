@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style></style>
+        <script>
+		$(function() {
+			$("a").on("click", function(){
+				event.preventDefault();
+				x = $(this).attr("href");
+				$("img").hide("slow",function(){
+					$("img").attr("src",x).show("slow");
+				});
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2>북리스트</h2>
+    <pre>
+    링크를 클릭하면 현재 이미지가 사라진 후
+    해당 이미지가 reslut1에 보여진다.
+    </pre>
+    <ul>
+    	<li> <a href="../images/download.jpg">jQuery 교재</a></li>
+    	<li> <a href="../images/download1.jpg">JSP 교재</a></li>
+    	<li> <a href="../images/download2.jpg">UML 교재</a></li>
+    	<li> <a href="../images/download3.jpg">AJAX 교재</a></li>
+    </ul>
+    <div id="result1"></div>
+    	<img alt="" src="../images/noImage.png">
+    </div>
+    </body>
+</html>

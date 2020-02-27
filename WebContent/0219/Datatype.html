@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        .box div{
+        	float: left;
+        	width: 200px;
+        	height: auto;
+        	margin: 5px;
+        	padding: 10px
+        }
+        .box {
+        	height: 300px;
+        }
+       
+        </style>
+        <script>
+		$(function() {
+			 xhr = new XMLHttpRequest();
+			$("#txt").on("click",function(){
+				xhr.open("get","txt.jsp",true);
+				xhr.send();
+				
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+		                res = this.responseText;
+		                res = res.split("/");
+		                code = "<ul>";
+		                $.each(res,function(i){
+		                	code +="<li>"+res[i]+"</li>";
+		                })
+		                code += "</ul>";   
+		               $("#result1").html(code);
+		      		}
+				}
+			})
+			$("#jarr").on("click",function(){
+				xhr.open("get","jarr.jsp",true);
+				xhr.send();
+				
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+		                res = JSON.parse(this.responseText);
+		                code = "<ol>";
+		                $.each(res,function(i){
+		                	code +="<li>"+res[i]+"</li>";
+		                })
+		                code += "</ol>";   
+		               $("#result2").html(code);
+		      		}
+				}
+			})
+			$("#jobj").on("click",function(){
+				xhr.open("get","jobj.jsp",true);
+				xhr.send();
+				
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+		                res = JSON.parse(this.responseText);
+		                code = "이름 : "+res.name+"<br>";
+		                code += "전화 : "+res.tel+"<br>";
+		                code += "주소 : "+res.addr+"<br>";
+		                code += "우편 : "+res.zip+"<br>";
+		                
+		               $("#result3").html(code);
+		      		}
+				}
+			})
+			$("#jarrobj").on("click",function(){
+				xhr.open("get","jarrobj.jsp",true);
+				xhr.send();
+				
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+		                
+						res = JSON.parse(this.responseText);
+		                code = "";
+						$.each(res, function(i){	
+		                code += (i+1)+"대 주인공<br>";
+		                code += "이름 : "+res[i].name+"<br>";
+		                code += "세대 : "+res[i].title+"<br>";
+		                code += "전화 : "+res[i].tel+"<br>";
+		                code += "주소 : "+res[i].addr+"<br>";
+		                code += "스탠드 : "+res[i].stand+"<br><hr>";
+		                	})
+		               $("#result4").html(code);
+						} 
+		      		}
+				})
+			
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <button type="button" id="txt">txt실행</button>
+    <button type="button" id="jarr">jarr실행</button>
+    <button type="button" id="jobj">jobj실행</button>
+    <button type="button" id="jarrobj">jarrobj실행</button>
+    <br><br>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    <div id="result3"></div>
+    <div id="result4"></div>
+    </div>
+    </body>
+</html>

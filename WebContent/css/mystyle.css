@@ -9,7 +9,9 @@ pre{
 }
 
 .box{
-	background: #eeeeee;
+	background-image:url("../images/hubble.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
 	margin: 10px;
 	height: auto;
 	padding: 20px;

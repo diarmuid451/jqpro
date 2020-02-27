@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        td{
+        	width: 150px;
+        	height: 30px;
+        	padding: 10px;
+        }
+        p:hover{
+        	background: darkgreen;
+        }
+        .selCol{
+        	background: lime;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("#btn1").on("click",function(){
+				// 요청시 서블릿실행
+				$.ajax({
+					// '/'가 없으면 상대path(현재 위치기반)로 찾는다.
+					url : "/jqpro/BuyerList",
+					success : function(res) {
+						code = "";
+						$.each(res, function(i){
+							code +="<p id ='"+res[i].id+"'>"+res[i].name+"</p>";
+						})
+						$("#names").html(code);
+					},
+					error : function(xhr){
+						alert("상태 : "+xhr.status+"\r\n정보 : "+xhr.statusText);
+					},
+					dataType : "json"
+				})
+			})
+			$("#names").on("click","p",function(){
+				$("p").removeClass("selCol");
+				$(this).addClass("selCol");
+				var x = $(this).attr("id");
+				$.ajax({
+					url : "/jqpro/BuyerList",
+					type : "post",
+					data : {"id" : x},
+					success : function(res){
+						code = "<table>";
+						code += "<tr><td>BUYER_ID</td>";
+						code += "<td>"+res.id+"</td></tr>";
+						code += "<tr><td>BUYER_NAME</td>";
+						code += "<td>"+res.name+"</td></tr>";
+						code += "<tr><td>BUYER_LGU</td>";
+						code += "<td>"+res.lgu+"</td></tr>";
+						code += "<tr><td>BUYER_COMTEL</td>";
+						code += "<td>"+res.comtel+"</td></tr>";
+						code += "<tr><td>BUYER_BANK</td>";
+						code += "<td>"+res.bank+"</td></tr>";
+						code += "<tr><td>BUYER_BANKNO</td>";
+						code += "<td>"+res.bankno+"</td></tr>";
+						code += "<tr><td>BUYER_BANKNAME</td>";
+						code += "<td>"+res.bankname+"</td></tr>";
+						code += "<tr><td>BUYER_MAIL</td>";
+						code += "<td>"+res.mail+"</td></tr>";
+						code += "<tr><td>BUYER_ZIP</td>";
+						code += "<td>"+res.zip+"</td></tr>";
+						code += "<tr><td>BUYER_ADD1</td>";
+						code += "<td>"+res.add1+"</td></tr>";
+						code += "<tr><td>BUYER_ADD2</td>";
+						code += "<td>"+res.add2+"</td></tr>";
+						code += "<tr><td>BUYER_FAX</td>";
+						code += "<td>"+res.fax+"</td></tr>";
+						code += "<tr><td>BUYER_ID</td>";
+						code += "<td>"+res.charger+"</td></tr>";
+						code += "<tr><td>BUYER_TELEXT</td>";
+						code += "<td>"+res.telextr+"</td></tr>";
+						$("#detail").html(code);
+					},
+					error : function(xhr){
+						alert("상태 : "+xhr.status+"\r\n정보 : "+xhr.statusText);
+					},
+					dataType : "json"
+				})
+			})
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <button id="btn1" type="button">실행</button>
+    <div id="result1">
+    	<table border="1">
+    		<tr>
+    			<td>거래처이름</td>
+    			<td>거래처상세정보</td>
+    		</tr>
+    		<tr>
+    			<td id="names"></td>
+    			<td id="detail"></td>
+    		</tr>
+    		
+    	</table>
+    </div>
+    </div>
+    </body>
+</html>

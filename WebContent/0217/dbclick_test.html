@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/mystyle.css">
+        <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <title>Document</title>
+        <style>
+        img{
+        	width: 200px;
+        	height: 200px;
+        }
+        </style>
+        <script>
+		$(function() {
+			$("img").on("dblclick",function(){
+				$(this).hide();
+			})
+			$("button").on("click",function(){
+				$("img").show();
+			})
+			
+			$("img").attr("temp",function(){
+				aa = $(this).attr("src");
+				return aa;
+			})
+			$("img").hover(function(){
+				temp2 = $(this).attr("src2");
+				// temp = $(this).attr("src");
+				$(this).attr("src",temp2);				
+			},function(){
+				temp = $(this).attr("temp");
+				$(this).attr("src",temp);
+			})
+			
+		})
+        </script>
+    </head>
+    <body>
+    <div class="box">
+    <h2></h2>
+    <pre></pre>
+    <img alt="" src="../images/게닛츠3.jpg" src2="../images/오메가루갈.jpg">
+    <img alt="" src="../images/흥국제로.jpg" src2="../images/오메가루갈.jpg">
+    <img alt="" src="../images/이그니스.jpg" src2="../images/오메가루갈.jpg">
+    <img alt="" src="../images/리얼제로.jpg" src2="../images/오메가루갈.jpg">
+    <button type="button">보이기</button>
+    <div id="result1"></div>
+    </div>
+    </body>
+</html>
